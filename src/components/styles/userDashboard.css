@@ -1,0 +1,119 @@
+.pRight {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    flex: 4;
+}
+
+.pLeft {
+    flex: 1;
+}
+
+.dashCont {
+    display: flex;
+    margin-top: 80px;
+    width: 100%;
+   
+}
+
+form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: calc(100% - 20px);
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-buttons {
+    display: flex;
+    /* justify-content: space-between; */
+    /* margin: 10px; */
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px;
+}
+
+.cancel-btn {
+    background-color: #d9534f;
+}
+
+.save-btn {
+    background-color: #5cb85c;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.dashboard {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    /* width: 200px; */
+    /* margin-right: 20px; */
+}
+
+.dashboard h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.dashboard ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.dashboard ul li {
+    margin-bottom: 10px;
+}
+
+.dashboard ul li a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.dashboard ul li a:hover {
+    text-decoration: underline;
+}
+.options{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* code related to responsiveness */
+@media only screen and (max-width: 912px) {
+    .dashCont{
+        flex-direction: column;
+    }
+    .pRight{
+        width: 100%;
+    }
+  }

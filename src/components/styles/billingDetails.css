@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.mainCont {
+    /* border: 2px solid black; */
+    width: 100%;
+    margin-top: 100px;
+    /* height: 100vh; */
+    display: flex;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.mainCont .commonBill {
+    /* border: 2px solid green; */
+    flex: 1;
+}
+
+.left {
+    padding: 30px;
+}
+
+/* form  */
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.form-group-checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.form-group-checkbox input {
+    margin-right: 10px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+.right {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+.right .cont {
+    /* border: 2px solid red; */
+    width: 70%;
+    margin: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: #e8fff5;
+    border-radius: 20px;
+}
+
+.commonBill {
+    background-color: #f7d7d7;
+}
+
+.productBuy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.productBuy div {
+    margin: 10px;
+}
+
+.flex-container {
+    height: 4px;
+    width: 90%;
+    background-color: rgb(212, 204, 204);
+}
+/* mobile view */
+@media only screen and (max-width: 874px) {
+    .mainCont{
+        display: flex;
+        flex-direction:column ;
+    }
+  }

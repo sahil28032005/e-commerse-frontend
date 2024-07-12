@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.star {
+  font-size: 2rem;
+  color: gray;
+  cursor: pointer;
+}
+
+.star.selected {
+  color: gold;
+}
+
+.productInf {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* //counter css
+   */
+
+
+.countercontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f0f4f8;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 150px;
+}
+
+.countdisplay {
+  /* font-size: 4rem; */
+  color: #333;
+  margin: 20px 0;
+}
+
+.button {
+  background: #6200ea;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 0.6rem;
+  cursor: pointer;
+  margin: 5px;
+  transition: background 0.3s;
+}
+
+.button:hover {
+  background: #3700b3;
+}
+
+.button:active {
+  background: #03dac5;
+}
+
+/* //button design */
+.buttoncontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btnbuynow {
+  background: linear-gradient(135deg, #ff4081 0%, #ff80ab 100%);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  margin: 10px;
+}
+
+.btn-buy-now:hover {
+  background: linear-gradient(135deg, #ff80ab 0%, #ff4081 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+.btn-buy-now:active {
+  background: linear-gradient(135deg, #ff4081 0%, #ff80ab 100%);
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* mobile view */
+@media only screen and (max-width: 1500px) {
+  .buyNowCont{
+    flex-direction: column!important;
+  }
+  .upperMainP{
+    width: 100%;
+  }
+  .col6{
+    width: 100%!important;
+    height: 100%!important;
+  }
+  .col5{
+    width: 100%!important;
+    padding: 0;
+  }
+}
+@media only screen and (max-width: 727px) {
+  .col6{
+    flex-direction: column;
+  }
+  .right img{
+    width: 233px!important;
+  }
+  .left{
+    flex-direction: row!important;
+    width: 100%!important;
+    flex-wrap: wrap;
+  }
+}
+
+

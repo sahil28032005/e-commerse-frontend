@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.common {
+    text-align: center;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navCont {
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    height: 10vh;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    background-color: aliceblue;
+}
+
+.pages ul li{
+    list-style: none;
+    flex: 1;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+}
+.pages ul li a{
+    text-decoration: none;
+    color: black;
+}
+.pages ul {
+    display: flex;
+    width: 100%;
+    margin: 0;
+}
+
+.cart input {
+    padding: 10px 40px 10px 10px;
+    /* Add right padding for the icon */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.cart .cartin {
+    width: 25%;
+    position: relative;
+    margin: 10px;
+}
+
+.cart .profile {
+    width: 25%;
+    position: relative;
+    margin: 10px;
+}
+
+.search {
+    position: relative;
+
+}
+
+.search img {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    /* pointer-events: none; */
+}
+
+.cartin img {
+    width: 20px;
+    height: 20px;
+}
+
+.profile img {
+    width: 20px;
+    height: 20px;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -15px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* media queries */
+@media (max-width: 977px) {
+
+    .pages {
+        display: none;
+    }
+}
+
+@media (max-width: 443px) {
+    .cart input{
+        display: none;
+    }
+}
+.hoverEffect {
+    /* background-color: #007BFF; Initial button background color */
+    color: black; /* Initial text color */
+    /* padding: 10px 20px; */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect */
+.hoverEffect:hover {
+    background-color: #6c757d; /* Grayish background color on hover */
+    color: white; /* White text color on hover */
+}

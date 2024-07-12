@@ -1,0 +1,10 @@
+.formCont{
+    border: 2px solid black;
+    width: 30%;
+    padding: 20px;
+    margin:40px auto;
+}
+.header{
+    margin: auto;
+    width: fit-content;
+}

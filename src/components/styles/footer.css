@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.myfooter-footer {
+    width: 100%;
+    height: fit-content;
+    background-color: rgba(0, 0, 0, 0.9); 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.myfooter-commondiv {
+    height: 100%;
+    flex: 1;
+    color: white;
+}
+
+.myfooter-innerCont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.myfooter-innerCont div {
+    font-family: "Hind Siliguri", sans-serif;
+}
+
+.myfooter-points {
+    margin: 14px;
+}
+
+.myfooter-media {
+    display: flex;
+}
+
+.myfooter-copy {
+    width: 100%;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media only screen and (max-width: 600px) {
+    .myfooter-footer  h1, h2, h3, h4, h5, h6{
+      font-size: 1.2rem;
+    }
+  }

@@ -1,0 +1,58 @@
+/* media queries */
+@media only screen and (max-width: 1062px) {
+    .hCard{
+        width: 10rem!important;
+        /* background-color: red!important; */
+        height: 20rem!important;
+    }
+   
+    body{
+        font-size: 0.6rem!important;
+    }
+    .btnHCont button{
+        font-size: 0.4rem!important;
+    }
+    .hCard-title{
+        font-size: 0.7rem;
+    }
+    .btnHCont{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .hCard-img, .hCard-img-top{
+        height: 103px!important;
+    }
+  }
+
+  @media only screen and (max-width: 811px) {
+    .sidebarHome{
+        display: none!important;
+    }
+    .btnHCont button{
+        font-size: 0.3rem;
+        margin: 5px;
+        padding: 0;
+        width: 2rem;
+        height: 1.2rem;
+    }
+  }
+   @media only screen and (max-width: 500px) {
+     .hCard{
+        padding: 0!important;
+        margin: 10px!important;
+        height: 16rem!important;
+        flex: 1;
+     }
+     .hCard-body{
+        text-align: center;
+     }
+    
+  }
+  .categoriesImg{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  

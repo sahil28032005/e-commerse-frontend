@@ -1,0 +1,106 @@
+@media only screen and (max-width: 1138px) {
+    body {
+      background-color: rgb(230, 173, 173);
+    }
+    .card{
+        width: 20rem;
+    }
+    .cartPaymentchild{
+        flex-direction: column;
+    }
+    .cartPaymentchild img{
+        width: auto;
+    }
+  }
+
+  @media only screen and (max-width: 900px) {
+    body {
+      background-color: rgb(175, 230, 173);
+    }
+    .citems{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .card .my-3{
+        margin: 10px;
+    }
+    .citems.col-sm{
+        justify-content: center;
+    }
+    .card.my-3{
+        margin: 10px;
+    }
+  }
+
+  @media only screen and (max-width: 806px) {
+    body {
+      background-color: rgb(186, 173, 230);
+    }
+    .card.my-3{
+       width: 19rem;
+    }
+    
+  }
+  @media only screen and (max-width: 776px) {
+    body {
+      background-color: rgb(229, 173, 230);
+    }
+    .card.my-3{
+       width: 17rem;
+    }
+    
+  }
+  @media only screen and (max-width: 706px) {
+    body {
+      background-color: rgb(229, 173, 230);
+    }
+    .card.my-3{
+       width: 16rem;
+    }
+    
+  }
+  @media only screen and (max-width: 675px) {
+    body {
+      background-color: rgb(229, 173, 230);
+    }
+    .card.my-3{
+       width: 13rem;
+    }
+    
+  }
+  @media only screen and (max-width: 688px) {
+    body {
+      background-color: rgb(229, 173, 230);
+    }
+    .card.my-3{
+       width: 13rem;
+    }
+    img.childStyle{
+        width: 12rem;
+    }
+    
+  }
+  @media only screen and (max-width: 580px) {
+    body {
+      background-color: rgb(229, 173, 230);
+    }
+    .card.my-3{
+       width: 22rem;
+    }
+    img.childStyle{
+        width: 16rem;
+    }
+    
+  }
+  @media only screen and (max-width: 1138px) {
+    .card.my-4{
+        /* margin:0; */
+        width: 100% !important;
+    }
+  }
+  .childStyle{
+    width: 40%;
+    height: 260px;
+    objectFit: cover;
+    objectPosition: center;
+  }
