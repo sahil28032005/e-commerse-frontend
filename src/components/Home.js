@@ -348,7 +348,7 @@ export const Home = () => {
         <>
 
             <div style={{ margin: '0', padding: '0', display: 'flex' }} className='homeCont'>
-            { loading && <Spinner/>}
+            {/* { loading && <Spinner/>} */}
                 <div className='sidebarHome' style={{ background: '#e8fff5', width: '20%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '80px' }}>
 
                     <div className='containerhead'>
