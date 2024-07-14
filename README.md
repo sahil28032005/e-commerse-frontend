@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+E-commerce Website
+Welcome to the E-commerce Website project! This project is a simple e-commerce platform built with the MERN stack. This README will guide you through the setup process for the frontend of the application.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Table of Contents
+Getting Started
+Prerequisites
+Setup Instructions
+Running the Application
+Getting Started
+To get a local copy of the project up and running, follow these steps.
 
-## Available Scripts
+Prerequisites
+Make sure you have the following installed on your machine:
 
-In the project directory, you can run:
+Node.js (https://nodejs.org/)
+npm (https://www.npmjs.com/)
+Setup Instructions
+1) Fork the Repository
 
-### `npm start`
+First, fork the repository to your own GitHub account. You can do this by clicking the "Fork" button on the repository's GitHub page.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2) Clone the Repository
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Clone the forked repository to your local machine using the following command:
+git clone https://github.com/sahil28032005/e-commerse-frontend.git
 
-### `npm test`
+3) Navigate to the Project Directory
+cd REPO-NAME
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4) Create an .env File
 
-### `npm run build`
+Create a .env file in the root directory of the project and add your Google OAuth Client ID. The file should contain the following line:
+REACT_APP_GOOGLE_CLIENT_ID=your-google-oauth-client-id
+Replace your-google-oauth-client-id with your actual Google OAuth Client ID obtained from the Google Developer Console.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+5) Install Dependencies
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Install the required dependencies using npm:
+npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+6) Start the Application
 
-### `npm run eject`
+Start the application using the following command:
+npm start
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This will setup the frontend of your application.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Contributing
+If you would like to contribute to this project, please fork the repository and use a feature branch. Pull requests are warmly welcome.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+License
+This project is licensed under the MIT License.
