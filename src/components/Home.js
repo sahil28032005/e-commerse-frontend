@@ -9,6 +9,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { useCartProvider } from '../context/cartContext.js';
 import './styles/Home.css';
 import Slideshow from "./Slideshow.js";
+import SkeletonLoading from './SkeletonLoading.js';
 
 //category imahes import
 import cat1 from '../components/icons/cat1.png';
@@ -346,9 +347,10 @@ export const Home = () => {
     ]
     return (
         <>
+            {/* demo skeleton testing */}
 
             <div style={{ margin: '0', padding: '0', display: 'flex' }} className='homeCont'>
-            {/* { loading && <Spinner/>} */}
+                {/* { loading && <Spinner/>} */}
                 <div className='sidebarHome' style={{ background: '#e8fff5', width: '20%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '80px' }}>
 
                     <div className='containerhead'>
@@ -406,14 +408,26 @@ export const Home = () => {
                             <Slideshow />
                         </div>
                         <div className="categoriesImg">
-                            <div onClick={() => handleChkBoxClicks(true, "666f289f2295ed1e4d8a90b8")} style={{flex:'1',display:'flex',alignItems:'center',flexDirection:'column',cursor:'pointer'}} className="commonCatImg"><img width={"72rem"} src={cat1}></img><p>Toys</p></div>
-                            <div onClick={() => handleChkBoxClicks(true, "666f287a2295ed1e4d8a90b2")}  style={{flex:'1',display:'flex',alignItems:'center',flexDirection:'column',cursor:'pointer'}} className="commonCatImg"><img width={"72rem"} src={cat2}></img><p>Housing</p></div>
-                            <div onClick={() => handleChkBoxClicks(true, "666f286e2295ed1e4d8a90af")}  style={{flex:'1',display:'flex',alignItems:'center',flexDirection:'column',cursor:'pointer'}} className="commonCatImg"><img width={"72rem"} src={cat3}></img><p>Fashion</p></div>
-                            <div onClick={() => handleChkBoxClicks(true, "666f28472295ed1e4d8a90ac")}  style={{flex:'1',display:'flex',alignItems:'center',flexDirection:'column',cursor:'pointer'}} className="commonCatImg"><img width={"72rem"} src={cat4}></img><p>Electronics</p></div>
-                            <div onClick={() => handleChkBoxClicks(true, "666f28972295ed1e4d8a90b5")}  style={{flex:'1',display:'flex',alignItems:'center',flexDirection:'column',cursor:'pointer'}} className="commonCatImg"><img width={"72rem"} src={cat5}></img><p>Books</p></div>
+                            <div onClick={() => handleChkBoxClicks(true, "666f289f2295ed1e4d8a90b8")} style={{ flex: '1', display: 'flex', alignItems: 'center', flexDirection: 'column', cursor: 'pointer' }} className="commonCatImg"><img width={"72rem"} src={cat1}></img><p>Toys</p></div>
+                            <div onClick={() => handleChkBoxClicks(true, "666f287a2295ed1e4d8a90b2")} style={{ flex: '1', display: 'flex', alignItems: 'center', flexDirection: 'column', cursor: 'pointer' }} className="commonCatImg"><img width={"72rem"} src={cat2}></img><p>Housing</p></div>
+                            <div onClick={() => handleChkBoxClicks(true, "666f286e2295ed1e4d8a90af")} style={{ flex: '1', display: 'flex', alignItems: 'center', flexDirection: 'column', cursor: 'pointer' }} className="commonCatImg"><img width={"72rem"} src={cat3}></img><p>Fashion</p></div>
+                            <div onClick={() => handleChkBoxClicks(true, "666f28472295ed1e4d8a90ac")} style={{ flex: '1', display: 'flex', alignItems: 'center', flexDirection: 'column', cursor: 'pointer' }} className="commonCatImg"><img width={"72rem"} src={cat4}></img><p>Electronics</p></div>
+                            <div onClick={() => handleChkBoxClicks(true, "666f28972295ed1e4d8a90b5")} style={{ flex: '1', display: 'flex', alignItems: 'center', flexDirection: 'column', cursor: 'pointer' }} className="commonCatImg"><img width={"72rem"} src={cat5}></img><p>Books</p></div>
                         </div>
 
                         <div className='body'>
+                            {loading && <>
+                                <div className="row" style={{ justifyContent: 'center' }}>
+                                    <SkeletonLoading />
+                                    <SkeletonLoading />
+                                    <SkeletonLoading />
+                                </div>
+                                <div className="row" style={{ justifyContent: 'center' }}>
+                                    <SkeletonLoading />
+                                    <SkeletonLoading />
+                                    <SkeletonLoading />
+                                </div>
+                            </>}
 
 
                             <InfiniteScroll
