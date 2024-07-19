@@ -181,7 +181,7 @@ const PaymentTest = () => {
                                                 Featured
                                             </div>
                                             <div className='cartPaymentchild' style={parentStyle}>
-                                                <img className='childStyle'  src={`https://e-commerse-backend-yeft.onrender.com/api/v1/products/get-particular-photo/0/${product._id}`}></img>
+                                                <img className='childStyle'  src={product?.photos?.[0]}></img>
                                                 <div className="card-body">
                                                     <h5 className="card-title">{product.name}</h5>
                                                     <p className="card-text"><strong>Avaliable quantity</strong> {product.quantity}</p>
@@ -219,7 +219,7 @@ const PaymentTest = () => {
                                             {similarProducts.map((product) => {
                                                 return (
                                                     <div className="card my-4" style={{ width: '28rem', margin: 'auto', background: '#b6b6b6' }}>
-                                                        <img style={{ height: '300px' }} className="card-img-top" src={`https://e-commerse-backend-yeft.onrender.com/api/v1/products/get-particular-photo/0/${product._id}`} alt="Card image cap" />
+                                                        <img style={{ height: '300px' }} className="card-img-top" src={product?.photos?.[0]} alt="Card image cap" />
                                                         <div className="card-body">
                                                             <h5 className="card-title">{product.name}</h5>
                                                             <p className="card-text">{product.description}</p>

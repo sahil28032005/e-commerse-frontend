@@ -114,7 +114,7 @@ const BillingDetails = () => {
                     <div className="cont">
                         <div className="productBuy">
                             <div>
-                                <img style={{ width: '70px', height: '70px' }} src={`https://e-commerse-backend-yeft.onrender.com/api/v1/products/get-particular-photo/0/${product._id}`} alt="" />
+                                <img style={{ width: '70px', height: '70px' }} src={product?.photos?.[0]} alt="" />
                             </div>
                             <div>
                                 <strong>{product.name}</strong>

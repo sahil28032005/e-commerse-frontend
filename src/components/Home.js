@@ -447,7 +447,8 @@ export const Home = () => {
                                                         row.map((item) => {
                                                             return (
                                                                 <div className="hCard card" style={{ width: '18rem', height: '25rem', margin: '20px', padding: '20px', background: '#c8bbbb' }}>
-                                                                    <img src={`https://e-commerse-backend-yeft.onrender.com/api/v1/products/get-particular-photo/0/${item._id}`} style={{ height: '150px' }} className=" hCard-img hCard-img-top card-img-top" alt="..." />
+                                                                    {/* <img src={`https://e-commerse-backend-yeft.onrender.com/api/v1/products/get-particular-photo/0/${item._id}`} style={{ height: '150px' }} className=" hCard-img hCard-img-top card-img-top" alt="..." /> */}
+                                                                    <img src={item?.photos?.[0]} style={{ height: '150px' }} className=" hCard-img hCard-img-top card-img-top" alt="..." />
                                                                     {/* <img style={{ height: '150px' }} className="hCard hCard-body hCard-title  hCard-img hCard-img-top card-img-top" alt="..." /> */}
                                                                     <div className="hCard-body card-body">
                                                                         <h5 className=" hCard-title  h card-title">{item.name.substring(0, 15)}</h5>

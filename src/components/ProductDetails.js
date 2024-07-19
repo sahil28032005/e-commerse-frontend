@@ -77,7 +77,7 @@ const ProductDetails = () => {
         setPosition({ x: withinX, y: withinY });
         setIszoomed({
             background: 'white',
-            backgroundImage: `url(https://e-commerse-backend-yeft.onrender.com/api/v1/products/get-particular-photo/${selected}/${singleProduct._id})`,
+            backgroundImage: `url(${singleProduct?.photos?.[selected]})`,
             backgroundSize: `${backGroundWidthAfterZoom}px ${backGroundWidthAfterZoom}px`,
             position: 'absolute',
             zIndex: '2',
@@ -123,20 +123,20 @@ const ProductDetails = () => {
                                 <div className={styles.left} style={{ height: '100%', width: '35%', display: 'flex', flexDirection: 'column' }}>
                                     <div className={styles.commonDiv} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#e2dfdf', flex: '1', margin: '5px', borderRadius: '10px' }}><img onClick={() => {
                                         setSelected(0);
-                                    }} style={{ width: '140px', height: '100px' }} src={`https://e-commerse-backend-yeft.onrender.com/api/v1/products/get-particular-photo/0/${singleProduct._id}`}></img></div>
+                                    }} style={{ width: '140px', height: '100px' }} src={singleProduct?.photos?.[0]}></img></div>
                                     <div className={styles.commonDiv} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#e2dfdf', flex: '1', margin: '5px', borderRadius: '10px' }}><img onClick={() => {
                                         setSelected(1);
-                                    }} style={{ width: '140px', height: '100px', margin: 'auto' }} src={`https://e-commerse-backend-yeft.onrender.com/api/v1/products/get-particular-photo/1/${singleProduct._id}`}></img></div>
+                                    }} style={{ width: '140px', height: '100px', margin: 'auto' }} src={singleProduct?.photos?.[1]}></img></div>
                                     <div className={styles.commonDiv} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#e2dfdf', flex: '1', margin: '5px', borderRadius: '10px' }}><img onClick={() => {
                                         setSelected(2);
-                                    }} style={{ width: '140px', height: '100px' }} src={`https://e-commerse-backend-yeft.onrender.com/api/v1/products/get-particular-photo/2/${singleProduct._id}`}></img></div>
+                                    }} style={{ width: '140px', height: '100px' }} src={singleProduct?.photos?.[2]}></img></div>
                                     <div className={styles.commonDiv} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#e2dfdf', flex: '1', margin: '5px', borderRadius: '10px' }}><img onClick={() => {
                                         setSelected(3);
-                                    }} style={{ width: '140px', height: '100px' }} src={`https://e-commerse-backend-yeft.onrender.com/api/v1/products/get-particular-photo/3/${singleProduct._id}`}></img></div>
+                                    }} style={{ width: '140px', height: '100px' }} src={singleProduct?.photos?.[3]}></img></div>
                                 </div>
                                 <div style={{ position: 'absolute' }}>x: {position.x} y:{position.y}</div>
 
-                                <div className={styles.right} style={{ height: '90%', background: '#e2dfdf', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '20px' }}><div style={{}} className='right'><img onMouseLeave={handleMouseLeave} onMouseMove={mouseMove} style={{ borderRadius: '10px', width: '400px', height: '100%', margin: '20px' }} src={`https://e-commerse-backend-yeft.onrender.com/api/v1/products/get-particular-photo/${selected}/${singleProduct._id}`}></img></div></div>
+                                <div className={styles.right} style={{ height: '90%', background: '#e2dfdf', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '20px' }}><div style={{}} className='right'><img onMouseLeave={handleMouseLeave} onMouseMove={mouseMove} style={{ borderRadius: '10px', width: '400px', height: '100%', margin: '20px' }} src={singleProduct?.photos?.[selected]}></img></div></div>
                             </div>
                             <div style={{ backgroundColor: '#f7d7d7', width: '50%', padding: '20px', position: 'relative'}} className={styles.col5}>
                                 <div style={isZoomed} className={styles.zoomed}>
@@ -254,7 +254,7 @@ const ProductDetails = () => {
                         return (
                             <>
                                 <div className="card" style={{ width: '18rem', margin: '20px' }}>
-                                    <img style={{ height: '250px' }} src={`https://e-commerse-backend-yeft.onrender.com/api/v1/products/get-particular-photo/0/${item._id}`} className="card-img-top" alt="..." />
+                                    <img style={{ height: '250px' }} src={item?.photos?.[0]} className="card-img-top" alt="..." />
                                     <div className="card-body">
                                         <h5 className="card-title">{item.name.substring(0,25)}</h5>
                                         <p className="card-text">{item.description.substring(0,40)}</p>

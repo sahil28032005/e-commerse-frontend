@@ -55,7 +55,7 @@ const CanceledItems = () => {
                                             <td>
                                                 <img
                                                     style={{ width: '100px' }}
-                                                    src={`https://e-commerse-backend-yeft.onrender.com/api/v1/products/get-particular-photo/0/${order?._id}`}
+                                                    src={order?.photos?.[0]}
                                                     alt=""
                                                 />
                                             </td>
