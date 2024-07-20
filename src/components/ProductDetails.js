@@ -1,4 +1,4 @@
-import React, { useEffect, useState,Component } from 'react'
+import React, { useEffect, useState, Component } from 'react'
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styles from './styles/productDetails.module.css';
@@ -114,31 +114,42 @@ const ProductDetails = () => {
     }, [id]);
     return (
         <>
-            <div className={styles.upper} style={{ marginTop: '80px'}}>
+            <div className={styles.upper} style={{ marginTop: '80px' }}>
                 <div className='information'>
                     {/* first row */}
                     <div className={styles.upperMainP}>
                         <div className={styles.buyNowCont} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                             <div style={{ background: '#e8fff5', height: '90vh', width: '50%', padding: '20px', display: 'flex' }} className={styles.col6}>
                                 <div className={styles.left} style={{ height: '100%', width: '35%', display: 'flex', flexDirection: 'column' }}>
-                                    <div className={styles.commonDiv} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#e2dfdf', flex: '1', margin: '5px', borderRadius: '10px' }}><img onClick={() => {
+                                    <div className={styles.commonDiv} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#e2dfdf', flex: '1', margin: '5px', borderRadius: '10px' }}><img onMouseOver={() => {
                                         setSelected(0);
                                     }} style={{ width: '140px', height: '100px' }} src={singleProduct?.photos?.[0]}></img></div>
-                                    <div className={styles.commonDiv} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#e2dfdf', flex: '1', margin: '5px', borderRadius: '10px' }}><img onClick={() => {
+                                    <div className={styles.commonDiv} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#e2dfdf', flex: '1', margin: '5px', borderRadius: '10px' }}><img onMouseOver={() => {
                                         setSelected(1);
                                     }} style={{ width: '140px', height: '100px', margin: 'auto' }} src={singleProduct?.photos?.[1]}></img></div>
-                                    <div className={styles.commonDiv} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#e2dfdf', flex: '1', margin: '5px', borderRadius: '10px' }}><img onClick={() => {
+                                    <div className={styles.commonDiv} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#e2dfdf', flex: '1', margin: '5px', borderRadius: '10px' }}><img onMouseOver={() => {
                                         setSelected(2);
                                     }} style={{ width: '140px', height: '100px' }} src={singleProduct?.photos?.[2]}></img></div>
-                                    <div className={styles.commonDiv} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#e2dfdf', flex: '1', margin: '5px', borderRadius: '10px' }}><img onClick={() => {
+                                    <div className={styles.commonDiv} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#e2dfdf', flex: '1', margin: '5px', borderRadius: '10px' }}><img onMouseOver={() => {
                                         setSelected(3);
                                     }} style={{ width: '140px', height: '100px' }} src={singleProduct?.photos?.[3]}></img></div>
+                                    <div className={styles.commonDiv} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#e2dfdf', flex: '1', margin: '5px', borderRadius: '10px' }}>
+                                        <iframe
+                                            width="200px"
+                                            height="100%"
+                                            src={singleProduct?.photos?.[4]}
+                                            allowFullScreen
+                                            title="Embedded Content"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            
+                                        ></iframe>
+                                    </div>
                                 </div>
-                                <div style={{ position: 'absolute' }}>x: {position.x} y:{position.y}</div>
+                                {/* <div style={{ position: 'absolute' }}>x: {position.x} y:{position.y}</div> */}
 
                                 <div className={styles.right} style={{ height: '90%', background: '#e2dfdf', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '20px' }}><div style={{}} className='right'><img onMouseLeave={handleMouseLeave} onMouseMove={mouseMove} style={{ borderRadius: '10px', width: '400px', height: '100%', margin: '20px' }} src={singleProduct?.photos?.[selected]}></img></div></div>
                             </div>
-                            <div style={{ backgroundColor: '#f7d7d7', width: '50%', padding: '20px', position: 'relative'}} className={styles.col5}>
+                            <div style={{ backgroundColor: '#f7d7d7', width: '50%', padding: '20px', position: 'relative' }} className={styles.col5}>
                                 <div style={isZoomed} className={styles.zoomed}>
 
                                 </div>
@@ -256,8 +267,8 @@ const ProductDetails = () => {
                                 <div className="card" style={{ width: '18rem', margin: '20px' }}>
                                     <img style={{ height: '250px' }} src={item?.photos?.[0]} className="card-img-top" alt="..." />
                                     <div className="card-body">
-                                        <h5 className="card-title">{item.name.substring(0,25)}</h5>
-                                        <p className="card-text">{item.description.substring(0,40)}</p>
+                                        <h5 className="card-title">{item.name.substring(0, 25)}</h5>
+                                        <p className="card-text">{item.description.substring(0, 40)}</p>
                                         <a onClick={() => {
                                             navigate(`/product-Details/${item._id}`)
                                         }} className="btn btn-danger mx-3">Buy Now</a>
