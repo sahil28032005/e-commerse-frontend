@@ -91,9 +91,9 @@ const Footer = () => {
                         </div>
                         <div class="myfooter-points myfooter-media">
                             <div><img src={insta} alt="" /></div>
-                            <div><img src={"https://www.linkedin.com/in/sahil-sadekar-06218722b"} alt="" /></div>
+                            <div><img src="https://www.linkedin.com/in/sahil-sadekar-06218722b" alt="" /></div>
                             <div><img src={reddit} alt="" /></div>
-                            <div><img src={"https://github.com/sahil28032005"} alt="" /></div>
+                            <div><img src="https://github.com/sahil28032005" alt="" /></div>
                         </div>
                     </div>
                 </div>
