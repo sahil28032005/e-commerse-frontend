@@ -93,33 +93,105 @@
 
 /* mobile view */
 @media only screen and (max-width: 1500px) {
-  .buyNowCont{
-    flex-direction: column!important;
+  .buyNowCont {
+    flex-direction: column !important;
   }
-  .upperMainP{
+
+  .upperMainP {
     width: 100%;
   }
-  .col6{
-    width: 100%!important;
-    height: 100%!important;
+
+  .col6 {
+    width: 100% !important;
+    height: 100% !important;
   }
-  .col5{
-    width: 100%!important;
+
+  .col5 {
+    width: 100% !important;
     padding: 0;
   }
 }
+
 @media only screen and (max-width: 727px) {
-  .col6{
+  .col6 {
     flex-direction: column;
   }
-  .right img{
-    width: 233px!important;
+
+  .right img {
+    width: 233px !important;
   }
-  .left{
-    flex-direction: row!important;
-    width: 100%!important;
+
+  .left {
+    flex-direction: row !important;
+    width: 100% !important;
     flex-wrap: wrap;
   }
 }
 
+/* for reviews section */
+.reviewSection {
+  border: 2px solid green;
+  width: 100%;
+  height: 70rem;
+}
 
+.raingsCount {
+  width: 100%;
+  height: 10rem;
+  border: 2px solid red;
+  display: flex;
+}
+
+.customerImages {
+  width: 100%;
+  height: 10rem;
+  border: 2px solid blue;
+}
+
+.ratingListCont {
+  width: 100%;
+  border: 2px solid green;
+  height: 100%;
+  display: flex;
+  flex: 1;
+}
+
+.totalAvg {
+  border: 2 px solid yellow;
+  flex: 1;
+  text-align: center;
+  margin: auto 0;
+}
+
+.listedRating {
+  border: 2px solid black;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.featureAnalytics {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.commonAnalytics {
+  border: 2px solid gray;
+  flex: 1;
+  height: 100%;
+}
+
+.actualReviewListing {
+  display: flex;
+  flex-direction: column;
+}
+
+.reviewListElement {
+  width: 100%;
+  height: 10rem;
+  border: 2px solid gray;
+}

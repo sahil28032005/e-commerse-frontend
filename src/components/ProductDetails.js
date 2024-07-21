@@ -3,6 +3,9 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styles from './styles/productDetails.module.css';
 import Footer from './Footer';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+
 // import productSchema from '../../../models/productSchema';
 const ProductDetails = () => {
     const [selected, setSelected] = useState(0);
@@ -141,7 +144,7 @@ const ProductDetails = () => {
                                             allowFullScreen
                                             title="Embedded Content"
                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            
+
                                         ></iframe>
                                     </div>
                                 </div>
@@ -222,43 +225,9 @@ const ProductDetails = () => {
                 </div>
             </div>
 
-            {/* //second row */}
+
+            {/* //second row displays related items*/}
             <div style={{ width: '100%', background: '#c1c1de', marginTop: '20px' }} className="containerRelated">
-                {/* <div className="row">
-                    <div ><h3>Related Items</h3></div>
-                    <div className='products'>
-                        <div className="">
-                            {similarProduct.map((item) => {
-                                return (
-                                    <div className="row">
-                                        {
-                                            item.map((item) => {
-                                                return (
-                                                    <div class="col-sm" style={{margin:'0'}}>
-                                                        <div className="card" style={{ width: '18rem', margin: 'mx-3' }}>
-                                                            <img style={{ height: '250px' }} src={`https://e-commerse-backend-yeft.onrender.com/api/v1/products/get-photo/${item._id}`} className="card-img-top" alt="..." />
-                                                            <div className="card-body">
-                                                                <h5 className="card-title">{item.name}</h5>
-                                                                <p className="card-text">{item.description}</p>
-                                                                <a onClick={() => {
-                                                                    navigate(`/product-Details/${item._id}`)
-                                                                }} className="btn btn-primary mx-3">Buy Now</a>
-                                                                <a href="#" className="btn btn-primary">Add to cart</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                )
-                                            })
-                                        }
-                                    </div>
-                                )
-
-                            })}
-
-                        </div>
-                    </div>
-                </div> */}
                 <div ><h3>Related Items</h3></div>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }}>
                     {similarProduct.map((item) => {
@@ -280,6 +249,49 @@ const ProductDetails = () => {
                     })}
                 </div>
 
+            </div>
+            {/* reviews section */}
+            <div className={styles.reviewSection}>
+                <h2>Ratings And Reviews</h2>
+                <div className={styles.raingsCount}>
+                    <div className={styles.ratingListCont}>
+                        <div className={styles.totalAvg}>
+                            <div style={{fontSize:'3rem'}}>4.3 <i className="fa-solid fa-star" style={{color: '#FFD43B'}}></i></div>
+                            <span style={{fontSize:'1.2rem'}}>12,345 Ratings and 12,345 reviews</span>
+                        </div >
+                        <div className={styles.listedRating}>
+                            <li style={{ listStyle: 'none' }}>5 12343</li>
+                            <li style={{ listStyle: 'none' }}>4 8787</li>
+                            <li style={{ listStyle: 'none' }}>3 877</li>
+                            <li style={{ listStyle: 'none' }}>2 6876</li>
+                            <li style={{ listStyle: 'none' }}>1 877</li>
+                        </div>
+                    </div>
+                    <div className={styles.featureAnalytics}>
+                        <div className={styles.commonAnalytics}></div>
+                        <div className={styles.commonAnalytics}></div>
+                        <div className={styles.commonAnalytics}></div>
+                        <div className={styles.commonAnalytics}> </div>
+                        <div className={styles.commonAnalytics}></div>
+                    </div>
+                </div>
+                <div className={`${styles.customerImages} ${styles.featureAnalytics}`}>
+
+                    <div className={styles.commonAnalytics}></div>
+                    <div className={styles.commonAnalytics}></div>
+                    <div className={styles.commonAnalytics}> </div>
+                    <div className={styles.commonAnalytics}></div>
+                    <div className={styles.commonAnalytics}></div>
+                    <div className={styles.commonAnalytics}></div>
+                    <div className={styles.commonAnalytics}></div>
+                </div>
+                <div className={styles.actualReviewListing}>
+                    <div className={styles.reviewListElement}></div>
+                    <div className={styles.reviewListElement}></div>
+                    <div className={styles.reviewListElement}></div>
+                    <div className={styles.reviewListElement}></div>
+
+                </div>
             </div>
             <div>
                 <Footer />
