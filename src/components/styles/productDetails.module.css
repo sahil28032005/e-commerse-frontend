@@ -91,6 +91,7 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
+
 /* mobile view */
 @media only screen and (max-width: 1500px) {
   .buyNowCont {
@@ -130,46 +131,61 @@
 
 /* for reviews section */
 .reviewSection {
-  border: 2px solid green;
+  /* border: 2px solid green; */
   width: 100%;
-  height: 70rem;
+  /* height: 70rem; */
 }
 
 .raingsCount {
   width: 100%;
-  height: 10rem;
-  border: 2px solid red;
+  height: 20rem;
+  /* border: 2px solid red; */
   display: flex;
 }
 
 .customerImages {
   width: 100%;
   height: 10rem;
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
 }
 
 .ratingListCont {
   width: 100%;
-  border: 2px solid green;
+  /* border: 2px solid green; */
   height: 100%;
   display: flex;
   flex: 1;
 }
 
 .totalAvg {
-  border: 2 px solid yellow;
+  /* border: 2 px solid yellow; */
   flex: 1;
   text-align: center;
-  margin: auto 0;
-}
-
-.listedRating {
-  border: 2px solid black;
-  flex: 1;
+  background-color: rgb(232, 255, 245);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+.listedRating {
+  /* border: 2px solid black; */
+  flex: 1;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  background-color: rgb(193, 193, 222);
+}
+
+.userSidePhotos {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: beige;
+  margin: 29px 0;
 }
 
 .featureAnalytics {
@@ -177,10 +193,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: rgb(247, 215, 215);
 }
 
 .commonAnalytics {
-  border: 2px solid gray;
+  /* border: 2px solid gray; */
   flex: 1;
   height: 100%;
 }
@@ -188,10 +205,83 @@
 .actualReviewListing {
   display: flex;
   flex-direction: column;
+  background-color: #e1e1e1;
 }
 
 .reviewListElement {
   width: 100%;
   height: 10rem;
-  border: 2px solid gray;
+  /* border: 2px solid gray; */
+}
+
+.progressCont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress1 {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 9rem;
+  border: 1.2rem solid palegreen;
+  box-shadow: inset 0 0 7px grey;
+  border-left-color: palegreen;
+  border-top-color: chartreuse;
+  border-right-color: darkgreen;
+  border-bottom-color: white;
+  text-align: center;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.uivalues {
+  top: 40px;
+  position: absolute;
+  left: 10px;
+  right: 0;
+  font-weight: 700;
+  font-size: 2.0rem;
+
+}
+
+.uilabels {
+
+  left: 0;
+  bottom: -16px;
+  text-shadow: 0 0 4px grey;
+  color: black;
+  position: absolute;
+  width: 100%;
+  font-size: 16px;
+}
+
+/* reviews responsiveness*/
+@media only screen and (max-width: 888px) {
+  .raingsCount {
+    flex-direction: column;
+    height: 40rem;
+  }
+}
+
+@media only screen and (max-width: 528px) {
+  .progress1 {
+    height: 8rem;
+    width: 8rem;
+  }
+
+  .uilabels {
+    font-size: 10px;
+  }
+
+  .uivalues {
+    font-size: 1.0rem;
+  }
+}
+
+@media only screen and (max-width: 419px) {
+  .progress1 {
+    height: 6rem;
+    width: 6rem;
+  }
 }

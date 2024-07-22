@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styles from './styles/productDetails.module.css';
 import Footer from './Footer';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 
 // import productSchema from '../../../models/productSchema';
@@ -256,42 +256,96 @@ const ProductDetails = () => {
                 <div className={styles.raingsCount}>
                     <div className={styles.ratingListCont}>
                         <div className={styles.totalAvg}>
-                            <div style={{fontSize:'3rem'}}>4.3 <i className="fa-solid fa-star" style={{color: '#FFD43B'}}></i></div>
-                            <span style={{fontSize:'1.2rem'}}>12,345 Ratings and 12,345 reviews</span>
+                            <div style={{ fontSize: '3rem' }}>4.3 <span style={{ fontSize: '50px' }}>&#9733;</span></div>
+                            <span style={{ fontSize: '1.2rem' }}>12,345 Ratings and 12,345 reviews</span>
                         </div >
                         <div className={styles.listedRating}>
-                            <li style={{ listStyle: 'none' }}>5 12343</li>
-                            <li style={{ listStyle: 'none' }}>4 8787</li>
-                            <li style={{ listStyle: 'none' }}>3 877</li>
-                            <li style={{ listStyle: 'none' }}>2 6876</li>
-                            <li style={{ listStyle: 'none' }}>1 877</li>
+                            <li style={{ listStyle: 'none' }} className={styles.progressCont}>
+                                <div style={{ margin: '10px' }}>5</div>
+                                <div className="w3-light-grey" style={{ width: '70%', margin: '10px', borderRadius: '10px' }}>
+                                    <div className="w3-container w3-green w3-center" style={{ width: '25%', borderRadius: '10px' }}>25%</div>
+                                </div> 12343
+                            </li>
+                            <li style={{ listStyle: 'none' }} className={styles.progressCont}>
+                                <div style={{ margin: '10px' }}>4</div>
+                                <div className="w3-light-grey" style={{ width: '70%', margin: '10px', borderRadius: '10px' }}>
+                                    <div className="w3-container w3-red w3-center" style={{ width: '50%', borderRadius: '10px' }}>25%</div>
+                                </div> 12343
+                            </li>
+                            <li style={{ listStyle: 'none' }} className={styles.progressCont}>
+                                <div style={{ margin: '10px' }}>3</div>
+                                <div className="w3-light-grey" style={{ width: '70%', margin: '10px', borderRadius: '10px' }}>
+                                    <div className="w3-container w3-blue w3-center" style={{ width: '75%', borderRadius: '10px' }}>25%</div>
+                                </div> 12343
+                            </li>
+                            <li style={{ listStyle: 'none' }} className={styles.progressCont}>
+                                <div style={{ margin: '10px' }}>2</div>
+                                <div className="w3-light-grey" style={{ width: '70%', margin: '10px', borderRadius: '10px' }}>
+                                    <div className="w3-container w3-green w3-center" style={{ width: '15%', borderRadius: '10px' }}>25%</div>
+                                </div> 12343
+                            </li>
+                            <li style={{ listStyle: 'none' }} className={styles.progressCont}>
+                                <div style={{ margin: '10px' }}>1</div>
+                                <div className="w3-light-grey" style={{ width: '70%', margin: '10px', borderRadius: '10px' }}>
+                                    <div className="w3-container w3-green w3-center" style={{ width: '25%', borderRadius: '10px' }}>25%</div>
+                                </div> 12343
+                            </li>
                         </div>
                     </div>
                     <div className={styles.featureAnalytics}>
-                        <div className={styles.commonAnalytics}></div>
+                        <div className={styles.commonAnalytics} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                            <div className={styles.progress1}>
+                                <div class={styles.uivalues}>85%</div>
+                                <div class={styles.uilabels}>Camera</div>
+                            </div>
+                        </div>
+                        <div className={styles.commonAnalytics} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                            <div className={styles.progress1}>
+                                <div class={styles.uivalues}>85%</div>
+                                <div class={styles.uilabels}>Gaming</div>
+                            </div>
+                        </div>
+                        <div className={styles.commonAnalytics} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                            <div className={styles.progress1}>
+                                <div class={styles.uivalues}>85%</div>
+                                <div class={styles.uilabels}>Processor</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div className="secondRev">
+                    <div className={`${styles.customerImages} ${styles.userSidePhotos}`}>
+
                         <div className={styles.commonAnalytics}></div>
                         <div className={styles.commonAnalytics}></div>
                         <div className={styles.commonAnalytics}> </div>
                         <div className={styles.commonAnalytics}></div>
+                        <div className={styles.commonAnalytics}></div>
+                        <div className={styles.commonAnalytics}></div>
+                        <div className={styles.commonAnalytics}></div>
+                    </div>
+                    <div className={styles.actualReviewListing}>
+                        <div className={styles.reviewListElement}>
+                            <h3>Superb Camera!</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam alias nisi quibusdam tenetur minus expedita esse. Totam aspernatur nulla vel.</p>
+                            <h3>John Smith certified buyer 4 days ago</h3>
+                        </div>
+                        <div className={styles.reviewListElement}>
+                            <h3>Superb Camera!</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam alias nisi quibusdam tenetur minus expedita esse. Totam aspernatur nulla vel.</p>
+                            <h3>John Smith certified buyer 4 days ago</h3>
+                        </div>
+                        <div className={styles.reviewListElement}>
+                            <h3>Superb Camera!</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam alias nisi quibusdam tenetur minus expedita esse. Totam aspernatur nulla vel.</p>
+                            <h3>John Smith certified buyer 4 days ago</h3>
+                        </div>
+
+
                     </div>
                 </div>
-                <div className={`${styles.customerImages} ${styles.featureAnalytics}`}>
 
-                    <div className={styles.commonAnalytics}></div>
-                    <div className={styles.commonAnalytics}></div>
-                    <div className={styles.commonAnalytics}> </div>
-                    <div className={styles.commonAnalytics}></div>
-                    <div className={styles.commonAnalytics}></div>
-                    <div className={styles.commonAnalytics}></div>
-                    <div className={styles.commonAnalytics}></div>
-                </div>
-                <div className={styles.actualReviewListing}>
-                    <div className={styles.reviewListElement}></div>
-                    <div className={styles.reviewListElement}></div>
-                    <div className={styles.reviewListElement}></div>
-                    <div className={styles.reviewListElement}></div>
-
-                </div>
             </div>
             <div>
                 <Footer />
