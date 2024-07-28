@@ -16,6 +16,7 @@ const ProductDetails = () => {
     const [similarProduct, setSimilarProduct] = useState([]);
     const [reviewDetails, setReviewDetails] = useState([]);
     const [catId, setCatId] = useState('');
+    const [totalRatings, setTotalRatings] = useState(0);
     const [isZoomed, setIszoomed] = useState({ display: 'none' });
     const [position, setPosition] = useState({
         x: 0, y: 0
@@ -42,10 +43,15 @@ const ProductDetails = () => {
     const getReviewDetails = async (req, res) => {
         try {
             const url = `https://e-commerse-backend-yeft.onrender.com/api/v1/reviews/reviews-informations/${id}`;
-            const reviewDetails = await axios.get(url);
+            const response = await axios.get(url);
             if (reviewDetails) {
-                // console.log("success", reviewDetails);
-                setReviewDetails(reviewDetails.data);
+                console.log("success", reviewDetails);
+                await setReviewDetails(response.data);
+                // console.log("mmmm",response?.data?.individualRatings?.threeStar);
+                const { oneStar = 0, twoStar = 0, threeStar = 0, fourStar = 0, fiveStar = 0 } = response?.data?.individualRatings;
+                const total = oneStar + twoStar + threeStar + fourStar + fiveStar;
+                setTotalRatings(total);
+
             }
         }
         catch (error) {
@@ -133,7 +139,8 @@ const ProductDetails = () => {
     }, [id]);
     return (
         <>
-            {console.log("revdetails", reviewDetails)}
+            {console.log("revdetailsjjjj", totalRatings)}
+            {console.log("revdetails", reviewDetails?.individualRatings?.fiveStar)}
             <div className={styles.upper} style={{ marginTop: '80px' }}>
                 <div className='information'>
                     {/* first row */}
@@ -280,32 +287,32 @@ const ProductDetails = () => {
                             <li style={{ listStyle: 'none' }} className={styles.progressCont}>
                                 <div style={{ margin: '10px' }}>5</div>
                                 <div className="w3-light-grey" style={{ width: '70%', margin: '10px', borderRadius: '10px' }}>
-                                    <div className="w3-container w3-green w3-center" style={{ width: '25%', borderRadius: '10px' }}>25%</div>
-                                </div> 12343
+                                    <div className="w3-container w3-green w3-center" style={{ width: `${reviewDetails?.individualRatings?.fiveStar / totalRatings * 100}%`, borderRadius: '10px' }}>{reviewDetails?.individualRatings?.fiveStar / totalRatings * 100}%</div>
+                                </div> {reviewDetails?.individualRatings?.fiveStar}
                             </li>
                             <li style={{ listStyle: 'none' }} className={styles.progressCont}>
                                 <div style={{ margin: '10px' }}>4</div>
                                 <div className="w3-light-grey" style={{ width: '70%', margin: '10px', borderRadius: '10px' }}>
-                                    <div className="w3-container w3-red w3-center" style={{ width: '50%', borderRadius: '10px' }}>25%</div>
-                                </div> 12343
+                                    <div className="w3-container w3-red w3-center" style={{ width: `${reviewDetails?.individualRatings?.fourStar / totalRatings * 100}%`, borderRadius: '10px' }}>{reviewDetails?.individualRatings?.fourStar / totalRatings * 100}%</div>
+                                </div> {reviewDetails?.individualRatings?.fourStar}
                             </li>
                             <li style={{ listStyle: 'none' }} className={styles.progressCont}>
                                 <div style={{ margin: '10px' }}>3</div>
                                 <div className="w3-light-grey" style={{ width: '70%', margin: '10px', borderRadius: '10px' }}>
-                                    <div className="w3-container w3-blue w3-center" style={{ width: '75%', borderRadius: '10px' }}>25%</div>
-                                </div> 12343
+                                    <div className="w3-container w3-blue w3-center" style={{ width: `${reviewDetails?.individualRatings?.threeStar / totalRatings * 100}%`, borderRadius: '10px' }}>{reviewDetails?.individualRatings?.threeStar / totalRatings * 100}%</div>
+                                </div> {reviewDetails?.individualRatings?.threeStar}
                             </li>
                             <li style={{ listStyle: 'none' }} className={styles.progressCont}>
                                 <div style={{ margin: '10px' }}>2</div>
                                 <div className="w3-light-grey" style={{ width: '70%', margin: '10px', borderRadius: '10px' }}>
-                                    <div className="w3-container w3-green w3-center" style={{ width: '15%', borderRadius: '10px' }}>25%</div>
-                                </div> 12343
+                                    <div className="w3-container w3-green w3-center" style={{ width: `${reviewDetails?.individualRatings?.twoStar / totalRatings * 100}%`, borderRadius: '10px' }}>{reviewDetails?.individualRatings?.twoStar / totalRatings * 100}%</div>
+                                </div> {reviewDetails?.individualRatings?.twoStar}
                             </li>
                             <li style={{ listStyle: 'none' }} className={styles.progressCont}>
                                 <div style={{ margin: '10px' }}>1</div>
                                 <div className="w3-light-grey" style={{ width: '70%', margin: '10px', borderRadius: '10px' }}>
-                                    <div className="w3-container w3-green w3-center" style={{ width: '25%', borderRadius: '10px' }}>25%</div>
-                                </div> 12343
+                                    <div className="w3-container w3-green w3-center" style={{ width: `${reviewDetails?.individualRatings?.oneStar / totalRatings * 100}%`, borderRadius: '10px' }}>{reviewDetails?.individualRatings?.oneStar / totalRatings * 100}%</div>
+                                </div> {reviewDetails?.individualRatings?.oneStar}
                             </li>
                         </div>
                     </div>
@@ -342,11 +349,11 @@ const ProductDetails = () => {
                         <div className={styles.commonAnalytics}></div>
                         <div className={styles.commonAnalytics}></div>
                     </div>
-                    
+
                     <div className={styles.actualReviewListing}>
                         {reviewDetails.textReiews?.map((item, index) => (
                             <div key={index} className={styles.reviewListElement}>
-                                <p>{item.reviewText}</p> 
+                                <p>{item.reviewText}</p>
                                 {/* <h3>{item.author} certified buyer {item.daysAgo} days ago</h3> Assuming you have author and daysAgo fields */}
                             </div>
                         ))}
