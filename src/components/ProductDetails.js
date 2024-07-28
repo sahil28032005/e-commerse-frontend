@@ -14,6 +14,7 @@ const ProductDetails = () => {
     let { id } = useParams();
     const [singleProduct, setSingleProduct] = useState({});
     const [similarProduct, setSimilarProduct] = useState([]);
+    const [reviewDetails, setReviewDetails] = useState([]);
     const [catId, setCatId] = useState('');
     const [isZoomed, setIszoomed] = useState({ display: 'none' });
     const [position, setPosition] = useState({
@@ -31,6 +32,20 @@ const ProductDetails = () => {
             }
             else {
                 console.log("error for arriving data on productdetails");
+            }
+        }
+        catch (error) {
+            console.log(error.message);
+        }
+    }
+    //functiom for fetch product review information from api
+    const getReviewDetails = async (req, res) => {
+        try {
+            const url = `https://e-commerse-backend-yeft.onrender.com/api/v1/reviews/reviews-informations/${id}`;
+            const reviewDetails = await axios.get(url);
+            if (reviewDetails) {
+                // console.log("success", reviewDetails);
+                setReviewDetails(reviewDetails.data);
             }
         }
         catch (error) {
@@ -114,9 +129,11 @@ const ProductDetails = () => {
     useEffect(() => {
         getProduct();
         getSimilarProducts();
+        getReviewDetails();
     }, [id]);
     return (
         <>
+            {console.log("revdetails", reviewDetails)}
             <div className={styles.upper} style={{ marginTop: '80px' }}>
                 <div className='information'>
                     {/* first row */}
@@ -256,8 +273,8 @@ const ProductDetails = () => {
                 <div className={styles.raingsCount}>
                     <div className={styles.ratingListCont}>
                         <div className={styles.totalAvg}>
-                            <div style={{ fontSize: '3rem' }}>4.3 <span style={{ fontSize: '50px' }}>&#9733;</span></div>
-                            <span style={{ fontSize: '1.2rem' }}>12,345 Ratings and 12,345 reviews</span>
+                            <div style={{ fontSize: '3rem' }}>{reviewDetails?.averageRating?.toFixed(1) || 0} <span style={{ fontSize: '50px' }}>&#9733;</span></div>
+                            <span style={{ fontSize: '1.2rem' }}>12,345 Ratings and {reviewDetails?.totalReviews > 1 ? reviewDetails?.totalReviews : 0} reviews</span>
                         </div >
                         <div className={styles.listedRating}>
                             <li style={{ listStyle: 'none' }} className={styles.progressCont}>
@@ -313,7 +330,7 @@ const ProductDetails = () => {
                         </div>
                     </div>
                 </div>
-                
+
                 <div className="secondRev">
                     <div className={`${styles.customerImages} ${styles.userSidePhotos}`}>
 
@@ -325,24 +342,14 @@ const ProductDetails = () => {
                         <div className={styles.commonAnalytics}></div>
                         <div className={styles.commonAnalytics}></div>
                     </div>
+                    
                     <div className={styles.actualReviewListing}>
-                        <div className={styles.reviewListElement}>
-                            <h3>Superb Camera!</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam alias nisi quibusdam tenetur minus expedita esse. Totam aspernatur nulla vel.</p>
-                            <h3>John Smith certified buyer 4 days ago</h3>
-                        </div>
-                        <div className={styles.reviewListElement}>
-                            <h3>Superb Camera!</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam alias nisi quibusdam tenetur minus expedita esse. Totam aspernatur nulla vel.</p>
-                            <h3>John Smith certified buyer 4 days ago</h3>
-                        </div>
-                        <div className={styles.reviewListElement}>
-                            <h3>Superb Camera!</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam alias nisi quibusdam tenetur minus expedita esse. Totam aspernatur nulla vel.</p>
-                            <h3>John Smith certified buyer 4 days ago</h3>
-                        </div>
-
-
+                        {reviewDetails.textReiews?.map((item, index) => (
+                            <div key={index} className={styles.reviewListElement}>
+                                <p>{item.reviewText}</p> 
+                                {/* <h3>{item.author} certified buyer {item.daysAgo} days ago</h3> Assuming you have author and daysAgo fields */}
+                            </div>
+                        ))}
                     </div>
                 </div>
 
