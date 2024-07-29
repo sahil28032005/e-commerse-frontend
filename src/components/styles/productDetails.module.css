@@ -285,3 +285,86 @@
     width: 6rem;
   }
 }
+
+/* text review css */
+.reviewCard {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.reviewHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.userAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.userInfo {
+  flex-grow: 1;
+}
+
+.username {
+  font-weight: bold;
+  font-size: 16px;
+  margin-right: 5px;
+}
+
+.reviewDate {
+  font-size: 14px;
+  color: #888;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+}
+
+.stars {
+  color: #ffcc00;
+  margin-right: 5px;
+}
+
+.ratingNumber {
+  font-size: 14px;
+  color: #888;
+}
+
+.reviewBody {
+  margin-bottom: 15px;
+}
+
+.reviewBody p {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+}
+
+.reviewFooter {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.btn {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 15px;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.btn:hover {
+  color: #0056b3;
+}

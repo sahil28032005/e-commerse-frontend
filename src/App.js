@@ -24,6 +24,7 @@ import BillingDetails from "./components/BillingDetails";
 import CanceledItems from "./components/CanceledItems";
 import PaymentMethods from "./components/PaymentMethods";
 import GoogleSignInSuccess from "./components/GoogleSignInSuccess";
+import RateProduct from "./components/RateProduct";
 
 //google oauth imports
 
@@ -166,19 +167,28 @@ const router = createBrowserRouter([
     )
   },
   {
-    path:"/payment-methods",
-    element:(
+    path: "/payment-methods",
+    element: (
       <>
-       <NavBar />
-       <PaymentMethods/>
+        <NavBar />
+        <PaymentMethods />
       </>
     )
   },
   {
-    path:"/success",
-    element:(
+    path: "/success",
+    element: (
       <>
-        <GoogleSignInSuccess/>
+        <GoogleSignInSuccess />
+      </>
+    )
+  },
+  {
+    path: "/rate-product/:id",
+    element: (
+      <>
+        <NavBar />
+        <RateProduct />
       </>
     )
   }
@@ -187,7 +197,7 @@ function App() {
   return (
     <>
       <RouterProvider router={router} />
-      
+
     </>
   );
 }

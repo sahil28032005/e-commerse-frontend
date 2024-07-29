@@ -1,0 +1,57 @@
+
+
+.feedback-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.feedback-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.feedback-form input[type="text"],
+.feedback-form textarea,
+.feedback-form input[type="file"] {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.feedback-form textarea {
+    resize: vertical;
+}
+
+.rating {
+    margin-bottom: 15px;
+}
+
+.rating input[type="radio"] {
+    display: none; /* Hide the radio buttons */
+}
+
+.rating label {
+    font-size: 24px;
+    color: #ddd; /* Light grey for unselected stars */
+    cursor: pointer; /* Cursor changes to a pointer on hover */
+}
+
+.rating input[type="radio"]:checked ~ label {
+    color: #f39c12; /* Change color to gold for selected stars */
+}
+
+button {
+    background-color: #21bd48;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

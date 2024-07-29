@@ -139,8 +139,6 @@ const ProductDetails = () => {
     }, [id]);
     return (
         <>
-            {console.log("revdetailsjjjj", totalRatings)}
-            {console.log("revdetails", reviewDetails?.individualRatings?.fiveStar)}
             <div className={styles.upper} style={{ marginTop: '80px' }}>
                 <div className='information'>
                     {/* first row */}
@@ -287,31 +285,31 @@ const ProductDetails = () => {
                             <li style={{ listStyle: 'none' }} className={styles.progressCont}>
                                 <div style={{ margin: '10px' }}>5</div>
                                 <div className="w3-light-grey" style={{ width: '70%', margin: '10px', borderRadius: '10px' }}>
-                                    <div className="w3-container w3-green w3-center" style={{ width: `${reviewDetails?.individualRatings?.fiveStar / totalRatings * 100}%`, borderRadius: '10px' }}>{reviewDetails?.individualRatings?.fiveStar / totalRatings * 100}%</div>
+                                    <div className="w3-container w3-green w3-center" style={{ width: `${reviewDetails?.individualRatings?.fiveStar / totalRatings * 100}%`, borderRadius: '10px' }}>{(reviewDetails?.individualRatings?.fiveStar / totalRatings * 100).toFixed(2)}%</div>
                                 </div> {reviewDetails?.individualRatings?.fiveStar}
                             </li>
                             <li style={{ listStyle: 'none' }} className={styles.progressCont}>
                                 <div style={{ margin: '10px' }}>4</div>
                                 <div className="w3-light-grey" style={{ width: '70%', margin: '10px', borderRadius: '10px' }}>
-                                    <div className="w3-container w3-red w3-center" style={{ width: `${reviewDetails?.individualRatings?.fourStar / totalRatings * 100}%`, borderRadius: '10px' }}>{reviewDetails?.individualRatings?.fourStar / totalRatings * 100}%</div>
+                                    <div className="w3-container w3-red w3-center" style={{ width: `${reviewDetails?.individualRatings?.fourStar / totalRatings * 100}%`, borderRadius: '10px' }}>{(reviewDetails?.individualRatings?.fourStar / totalRatings * 100).toFixed(2)}%</div>
                                 </div> {reviewDetails?.individualRatings?.fourStar}
                             </li>
                             <li style={{ listStyle: 'none' }} className={styles.progressCont}>
                                 <div style={{ margin: '10px' }}>3</div>
                                 <div className="w3-light-grey" style={{ width: '70%', margin: '10px', borderRadius: '10px' }}>
-                                    <div className="w3-container w3-blue w3-center" style={{ width: `${reviewDetails?.individualRatings?.threeStar / totalRatings * 100}%`, borderRadius: '10px' }}>{reviewDetails?.individualRatings?.threeStar / totalRatings * 100}%</div>
+                                    <div className="w3-container w3-blue w3-center" style={{ width: `${reviewDetails?.individualRatings?.threeStar / totalRatings * 100}%`, borderRadius: '10px' }}>{(reviewDetails?.individualRatings?.threeStar / totalRatings * 100).toFixed(2)}%</div>
                                 </div> {reviewDetails?.individualRatings?.threeStar}
                             </li>
                             <li style={{ listStyle: 'none' }} className={styles.progressCont}>
                                 <div style={{ margin: '10px' }}>2</div>
                                 <div className="w3-light-grey" style={{ width: '70%', margin: '10px', borderRadius: '10px' }}>
-                                    <div className="w3-container w3-green w3-center" style={{ width: `${reviewDetails?.individualRatings?.twoStar / totalRatings * 100}%`, borderRadius: '10px' }}>{reviewDetails?.individualRatings?.twoStar / totalRatings * 100}%</div>
+                                    <div className="w3-container w3-green w3-center" style={{ width: `${reviewDetails?.individualRatings?.twoStar / totalRatings * 100}%`, borderRadius: '10px' }}>{(reviewDetails?.individualRatings?.twoStar / totalRatings * 100).toFixed(2)}%</div>
                                 </div> {reviewDetails?.individualRatings?.twoStar}
                             </li>
                             <li style={{ listStyle: 'none' }} className={styles.progressCont}>
                                 <div style={{ margin: '10px' }}>1</div>
                                 <div className="w3-light-grey" style={{ width: '70%', margin: '10px', borderRadius: '10px' }}>
-                                    <div className="w3-container w3-green w3-center" style={{ width: `${reviewDetails?.individualRatings?.oneStar / totalRatings * 100}%`, borderRadius: '10px' }}>{reviewDetails?.individualRatings?.oneStar / totalRatings * 100}%</div>
+                                    <div className="w3-container w3-green w3-center" style={{ width: `${reviewDetails?.individualRatings?.oneStar / totalRatings * 100}%`, borderRadius: '10px' }}>{(reviewDetails?.individualRatings?.oneStar / totalRatings * 100).toFixed(2)}%</div>
                                 </div> {reviewDetails?.individualRatings?.oneStar}
                             </li>
                         </div>
@@ -319,20 +317,20 @@ const ProductDetails = () => {
                     <div className={styles.featureAnalytics}>
                         <div className={styles.commonAnalytics} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                             <div className={styles.progress1}>
-                                <div class={styles.uivalues}>85%</div>
-                                <div class={styles.uilabels}>Camera</div>
+                                <div className={styles.uivalues}>85%</div>
+                                <div className={styles.uilabels}>Camera</div>
                             </div>
                         </div>
                         <div className={styles.commonAnalytics} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                             <div className={styles.progress1}>
-                                <div class={styles.uivalues}>85%</div>
-                                <div class={styles.uilabels}>Gaming</div>
+                                <div className={styles.uivalues}>85%</div>
+                                <div className={styles.uilabels}>Gaming</div>
                             </div>
                         </div>
                         <div className={styles.commonAnalytics} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                             <div className={styles.progress1}>
-                                <div class={styles.uivalues}>85%</div>
-                                <div class={styles.uilabels}>Processor</div>
+                                <div className={styles.uivalues}>85%</div>
+                                <div className={styles.uilabels}>Processor</div>
                             </div>
                         </div>
                     </div>
@@ -351,11 +349,50 @@ const ProductDetails = () => {
                     </div>
 
                     <div className={styles.actualReviewListing}>
+                        <div style={{ position: 'relative', width: '100%', height: '100px' }}> {/* Adjust width and height as needed */}
+                            <button
+                                style={{
+                                    backgroundColor: '#007bff',
+                                    color: 'white',
+                                    border: 'none',
+                                    padding: '10px 20px',
+                                    fontSize: '16px',
+                                    cursor: 'pointer',
+                                    borderRadius: '5px',
+                                    position: 'absolute',
+                                    right: '10px', // Adjust the right offset as needed
+                                    bottom: '10px' // Adjust the bottom offset as needed
+                                }}
+                                onClick={() => { navigate(`/rate-product/${id}`) }}
+                            >
+                                Rate This Product
+                            </button>
+                        </div>
+
                         {reviewDetails.textReiews?.map((item, index) => (
-                            <div key={index} className={styles.reviewListElement}>
-                                <p>{item.reviewText}</p>
-                                {/* <h3>{item.author} certified buyer {item.daysAgo} days ago</h3> Assuming you have author and daysAgo fields */}
+                            <div className={styles.reviewCard}>
+                                <div className={styles.reviewHeader}>
+                                    <img src="profile.jpg" alt="User Avatar" className={styles.userAvatar} />
+                                    <div className={styles.userInfo}>
+                                        <span className={styles.username}>{item?.user?.name}</span>
+                                        <span className={styles.reviewDate}>July 29, 2024</span>
+                                    </div>
+                                    <div className={styles.rating}>
+                                        <span className={styles.stars}>★★★★☆</span>
+                                        <span className={styles.ratingNumber}>4.5/5</span>
+                                    </div>
+                                </div>
+                                <div className={styles.reviewBody}>
+                                    <p>{item.reviewText}</p>
+                                </div>
+                                <div className={styles.reviewFooter}>
+                                    <button className={styles.btn + ' ' + styles.helpful}>Helpful</button>
+                                    <button className={styles.btn + ' ' + styles.reply}>Reply</button>
+                                    <button className={styles.btn + ' ' + styles.report}>Report</button>
+                                </div>
                             </div>
+
+
                         ))}
                     </div>
                 </div>
