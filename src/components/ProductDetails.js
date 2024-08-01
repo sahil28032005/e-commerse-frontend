@@ -340,17 +340,13 @@ const ProductDetails = () => {
                     <div className={`${styles.customerImages} ${styles.userSidePhotos}`}>
                         {reviewDetails.textReiews?.map((item, index) => (
                             <>
-                                {item?.photoUrl && <img src={item.photoUrl} className={styles.commonAnalytics} alt="" />}
+                                <div key={index} style={{ display: 'flex', flexWrap: 'wrap', gap: '10px'}}>
+                                    {item?.photoUrl && <img src={item.photoUrl} className={styles.commonAnalytics} alt="" />}
+                                </div>
+
                             </>
 
                         ))}
-                        <div className={styles.commonAnalytics}></div>
-                        <div className={styles.commonAnalytics}></div>
-                        <div className={styles.commonAnalytics}> </div>
-                        <div className={styles.commonAnalytics}></div>
-                        <div className={styles.commonAnalytics}></div>
-                        <div className={styles.commonAnalytics}></div>
-                        <div className={styles.commonAnalytics}></div>
                     </div>
 
                     <div className={styles.actualReviewListing}>
