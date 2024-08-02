@@ -369,7 +369,7 @@ const ProductDetails = () => {
                         </div>
 
                         {reviewDetails.textReiews?.slice(0, 4).map((item, index) => (
-                            <div className={styles.reviewCard}>
+                            <div style={{ width: '90%', margin: '20px auto', background: 'beige',borderRadius:'6rem' }}  className={styles.reviewCard}>
                                 <div className={styles.reviewHeader}>
                                     <img src={item?.photoUrl} alt="User Avatar" className={styles.userAvatar} />
                                     <div className={styles.userInfo}>

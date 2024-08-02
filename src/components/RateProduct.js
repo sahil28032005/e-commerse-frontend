@@ -40,7 +40,7 @@ const RateProduct = () => {
     return (
         <>
             {console.log("filedata:", file)}
-            <div style={{ marginTop: '80px', padding: '30px' }}>
+            <div style={{ marginTop: '80px', padding: '30px',background:'#fffdf4' }}>
                 <h1>Product Feedback</h1>
                 <form onSubmit={handleSubmit} className="feedback-form">
                     {/* <label htmlFor="title">Title:</label> */}

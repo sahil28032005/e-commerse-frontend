@@ -1,0 +1,56 @@
+/* UniqueProductComponent.css */
+
+.unique-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .unique-product-info, .unique-filters, .unique-reviews {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .unique-product-info {
+    text-align: center;
+  }
+  
+  .unique-product-image {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .unique-filters select {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .unique-reviews ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .unique-reviews li {
+    border-bottom: 1px solid #ddd;
+    padding: 0.5rem 0;
+  }
+  
+  @media (min-width: 768px) {
+    .unique-container {
+      grid-template-columns: 1fr 2fr;
+    }
+  
+    .unique-filters {
+      grid-column: span 1;
+    }
+  
+    .unique-reviews {
+      grid-column: span 2;
+    }
+  }
+  

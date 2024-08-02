@@ -17,7 +17,7 @@ const PaymentTest = () => {
     const [user, setUser] = useAuthProvider();
     const [categories, setCategories] = useState([]);
     const [similarProducts, setSimilarProducts] = useState([]);
-    const [number,setNumber] = useCartProvider();
+    const [number, setNumber] = useCartProvider();
     const id = params.id;
     const fetchSpecific = async (extracted) => {
         try {
@@ -143,7 +143,7 @@ const PaymentTest = () => {
         justifyContent: 'center'
     };
 
-   
+
     //useffect for similar products
     useEffect(() => {
         getSimilarAsPerCatIds();
@@ -170,7 +170,7 @@ const PaymentTest = () => {
         return (
             <>
                 <div className="containerPayment" style={{ marginTop: '90px', background: '#e8fff5', width: '100%', padding: '50px' }}>
-                    <div className="row" style={{ margin:'auto' }}>
+                    <div className="row" style={{ margin: 'auto' }}>
                         <div className="citems col-sm">
                             {/* cart Items */}
                             {
@@ -181,7 +181,7 @@ const PaymentTest = () => {
                                                 Featured
                                             </div>
                                             <div className='cartPaymentchild' style={parentStyle}>
-                                                <img className='childStyle'  src={product?.photos?.[0]}></img>
+                                                <img className='childStyle' src={product?.photos?.[0]}></img>
                                                 <div className="card-body">
                                                     <h5 className="card-title">{product.name}</h5>
                                                     <p className="card-text"><strong>Avaliable quantity</strong> {product.quantity}</p>
@@ -236,7 +236,10 @@ const PaymentTest = () => {
                         </div>
                     </div>
                 </div>
-                
+                <div>
+                    <Footer />
+                </div>
+
             </>
         );
     }
