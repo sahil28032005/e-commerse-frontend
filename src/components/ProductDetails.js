@@ -338,14 +338,12 @@ const ProductDetails = () => {
 
                 <div className="secondRev">
                     <div className={`${styles.customerImages} ${styles.userSidePhotos}`}>
-                        {reviewDetails.textReiews?.map((item, index) => (
+                        {reviewDetails.textReiews?.slice(0, 7).map((item, index) => (
                             <>
-                                <div key={index} style={{ display: 'flex', flexWrap: 'wrap', gap: '10px'}}>
+                                <div key={index} style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
                                     {item?.photoUrl && <img src={item.photoUrl} className={styles.commonAnalytics} alt="" />}
                                 </div>
-
                             </>
-
                         ))}
                     </div>
 
@@ -370,7 +368,7 @@ const ProductDetails = () => {
                             </button>
                         </div>
 
-                        {reviewDetails.textReiews?.map((item, index) => (
+                        {reviewDetails.textReiews?.slice(0, 4).map((item, index) => (
                             <div className={styles.reviewCard}>
                                 <div className={styles.reviewHeader}>
                                     <img src={item?.photoUrl} alt="User Avatar" className={styles.userAvatar} />
@@ -395,6 +393,25 @@ const ProductDetails = () => {
 
 
                         ))}
+                    </div>
+                    <div style={{ position: 'relative', width: '100%', height: '100px' }}> {/* Adjust width and height as needed */}
+                        <button
+                            style={{
+                                backgroundColor: '#007bff',
+                                color: 'white',
+                                border: 'none',
+                                padding: '10px 20px',
+                                fontSize: '16px',
+                                cursor: 'pointer',
+                                borderRadius: '5px',
+                                position: 'absolute',
+                                right: '10px', // Adjust the right offset as needed
+                                bottom: '10px' // Adjust the bottom offset as needed
+                            }}
+                            onClick={() => { navigate(`/get-alll-reviews/${id}`) }}
+                        >
+                            See All Reviews...
+                        </button>
                     </div>
                 </div>
 

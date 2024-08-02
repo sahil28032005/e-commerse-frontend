@@ -25,6 +25,7 @@ import CanceledItems from "./components/CanceledItems";
 import PaymentMethods from "./components/PaymentMethods";
 import GoogleSignInSuccess from "./components/GoogleSignInSuccess";
 import RateProduct from "./components/RateProduct";
+import AllReviewsListing from "./components/AllReviewsListing";
 
 //google oauth imports
 
@@ -190,6 +191,16 @@ const router = createBrowserRouter([
         <NavBar />
         <RateProduct />
       </>
+    )
+  },
+  {
+    path: "/get-alll-reviews/:id",
+    element: (
+      <>
+        <NavBar />
+        <AllReviewsListing />
+      </>
+
     )
   }
 ]);
