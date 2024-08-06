@@ -139,9 +139,11 @@ const ProductDetails = () => {
     }, [id]);
     return (
         <>
+            {console.log("rsset", reviewDetails)}
             <div className={styles.upper} style={{ marginTop: '80px' }}>
                 <div className='information'>
                     {/* first row */}
+                    <h3>{singleProduct?.category?.name}</h3>
                     <div className={styles.upperMainP}>
                         <div className={styles.buyNowCont} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                             <div style={{ background: '#e8fff5', height: '90vh', width: '50%', padding: '20px', display: 'flex' }} className={styles.col6}>
@@ -315,37 +317,36 @@ const ProductDetails = () => {
                         </div>
                     </div>
                     <div className={styles.featureAnalytics}>
-                        <div className={styles.commonAnalytics} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <div className={styles.progress1}>
-                                <div className={styles.uivalues}>85%</div>
-                                <div className={styles.uilabels}>Camera</div>
-                            </div>
-                        </div>
-                        <div className={styles.commonAnalytics} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <div className={styles.progress1}>
-                                <div className={styles.uivalues}>85%</div>
-                                <div className={styles.uilabels}>Gaming</div>
-                            </div>
-                        </div>
-                        <div className={styles.commonAnalytics} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <div className={styles.progress1}>
-                                <div className={styles.uivalues}>85%</div>
-                                <div className={styles.uilabels}>Processor</div>
-                            </div>
-                        </div>
+                        {singleProduct?.subCategory?.reviewsCategory.map((item, index) => {
+                            return (
+                                <div className={styles.commonAnalytics} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                    <div className={styles.progress1}>
+                                        <div className={styles.uivalues}>{reviewDetails?.percentGrp?.[index]?.toFixed(2) ?? 0}%</div>
+                                        <div className={styles.uilabels}>{item}</div>
+                                    </div>
+                                </div>
+                            )
+                        })}
+
+
                     </div>
                 </div>
 
                 <div className="secondRev">
-                    <div className={`${styles.customerImages} ${styles.userSidePhotos}`}>
+                    <div style={{ position: 'relative', overflowX: 'auto' }} className={`${styles.customerImages} ${styles.userSidePhotos}`}>
                         {reviewDetails.textReiews?.slice(0, 7).map((item, index) => (
-                            <>
-                                <div key={index} style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-                                    {item?.photoUrl && <img src={item.photoUrl} className={styles.commonAnalytics} alt="" />}
-                                </div>
-                            </>
+                            <div key={index} style={{ display: 'inline-block', position: 'relative' }}>
+                                {item?.photoUrl && <img src={item.photoUrl} className={styles.commonAnalytics} alt="" />}
+                                {index === 6 && reviewDetails.textReiews.length > 7 && (
+                                    <div className={styles.overlayImgCust}>
+                                        <span>View More</span>
+                                        <span className={styles.remainingCount}>+{reviewDetails.textReiews.length - 7}</span>
+                                    </div>
+                                )}
+                            </div>
                         ))}
                     </div>
+
 
                     <div className={styles.actualReviewListing}>
                         <div style={{ position: 'relative', width: '100%', height: '100px' }}> {/* Adjust width and height as needed */}
@@ -369,7 +370,7 @@ const ProductDetails = () => {
                         </div>
 
                         {reviewDetails.textReiews?.slice(0, 4).map((item, index) => (
-                            <div style={{ width: '90%', margin: '20px auto', background: 'beige',borderRadius:'6rem' }}  className={styles.reviewCard}>
+                            <div style={{ width: '90%', margin: '20px auto', background: 'beige', borderRadius: '6rem' }} className={styles.reviewCard}>
                                 <div className={styles.reviewHeader}>
                                     <img src={item?.photoUrl} alt="User Avatar" className={styles.userAvatar} />
                                     <div className={styles.userInfo}>

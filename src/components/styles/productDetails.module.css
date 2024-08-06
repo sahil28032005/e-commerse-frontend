@@ -196,6 +196,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  /* height: fit-content; */
+  overflow: auto;
   background-color: rgb(247, 215, 215);
 }
 
@@ -292,6 +294,12 @@
   .userSidePhotos{
     justify-content: center;
   }
+  .featureAnalytics{
+    flex-direction: column;
+  }
+  .ratingListCont{
+    flex-direction: column;
+  }
 }
 
 /* text review css */
@@ -376,3 +384,19 @@
 .btn:hover {
   color: #0056b3;
 }
+
+.overlayImgCust {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* //over effecs */

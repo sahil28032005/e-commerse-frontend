@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './styles/rateProduct.css';
 import { useParams } from 'react-router-dom';
 import Footer from './Footer';
@@ -11,6 +11,9 @@ const RateProduct = () => {
     const [rating, setRating] = useState(0);
     const [file, setFile] = useState();
     const { id } = useParams();
+    const [singleProduct, setSingleProduct] = useState({});
+    const [selectedCategory, setSelectedCategory] = useState('');
+
     //form submission
     const handleSubmit = async (event) => {
         try {
@@ -22,6 +25,9 @@ const RateProduct = () => {
             formData.append("review", description);
             formData.append("rating", rating);
             formData.append("imageFromCust", file);
+            formData.append("subCategory", singleProduct?.subCategory?._id);
+            formData.append("subTypeChild", selectedCategory);
+
 
             //send request for review adder api
             const uri = "https://e-commerse-backend-yeft.onrender.com/api/v1/reviews/create-review";
@@ -31,21 +37,62 @@ const RateProduct = () => {
             console.log(err.message);
         }
     }
+    //retrive product information for knowing subCateegory types for that product so they will appended to particular products individually
+    const getProduct = async () => {
+        try {
+            const url = `https://e-commerse-backend-yeft.onrender.com/api/v1/products/get/${id}`;
+            const response = await axios.get(url);
+            if (response.data.success) {
+                console.log("data arrived on productdetails");
+                setSingleProduct(response.data.data);
+                // setCatId(response.data.data.category?._id);
+            }
+            else {
+                console.log("error for arriving data on productdetails");
+            }
+        }
+        catch (error) {
+            console.log(error.message);
+        }
+    }
 
     //for file handeling
 
     function handleChange(event) {
         setFile(event.target.files[0])
     }
+    const onCategoryChange = (value) => {
+        setSelectedCategory(value);
+        // Handle the category change logic here
+    };
+
+    //userEffects
+    useEffect(() => {
+        getProduct();
+    }, []);
     return (
         <>
-            {console.log("filedata:", file)}
-            <div style={{ marginTop: '80px', padding: '30px',background:'#fffdf4' }}>
+            {/* {console.log("singlepd:", singleProduct)}
+            {console.log("selected:", selectedCategory)}
+            {console.log("subcatid:", singleProduct?.subCategory?._id)} */}
+            <div style={{ marginTop: '80px', padding: '30px', background: '#fffdf4' }}>
                 <h1>Product Feedback</h1>
                 <form onSubmit={handleSubmit} className="feedback-form">
                     {/* <label htmlFor="title">Title:</label> */}
                     {/* <input type="text" value={title} id="title" name="title" onChange={(e) => { setTitle(e.target.value) }} required /> */}
-
+                    <label htmlFor="description">Review Category:</label>
+                    <select
+                        id="category-select"
+                        value={selectedCategory}
+                        onChange={e => onCategoryChange(e.target.value)}
+                        className="category-select"
+                    >
+                        {singleProduct?.subCategory?.reviewsCategory?.map((category, index) => (
+                            <option key={index} value={category}>
+                                {category}
+                            </option>
+                        ))}
+                    </select>
                     <label htmlFor="description">Description:</label>
                     <textarea value={description} onChange={(e) => { setDescription(e.target.value) }} id="description" name="description" rows="4" required></textarea>
 
