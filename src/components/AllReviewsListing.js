@@ -8,9 +8,10 @@ const AllReviewsListing = () => {
     const { id } = useParams();
     const [reviewData, setReviewsData] = useState({});
     const [singleProduct, setSingleProduct] = useState({});
+    const [sortBy, setSortBy] = useState('rating');
     const fetchAllData = async () => {
         try {
-            const url = `https://e-commerse-backend-yeft.onrender.com/api/v1/reviews/reviews-informations/${id}`;
+            const url = `https://e-commerse-backend-yeft.onrender.com/api/v1/reviews/reviews-informations/${id}?sortBy=${sortBy}`;
             const data = await axios.get(url);
             if (data) {
                 console.log(data.data.textReiews);
@@ -43,9 +44,13 @@ const AllReviewsListing = () => {
         fetchAllData();
         getProduct();
     }, []);
+    useEffect(() => {
+        fetchAllData();
+    }, [sortBy]);
+
     return (
         <>
-            {console.log(id)}
+            {console.log(sortBy)}
             <div style={{ marginTop: '80px' }}>
                 <div style={{ background: '#dbdbff' }} className="headerInf">
                     <div className="unique-container">
@@ -64,40 +69,42 @@ const AllReviewsListing = () => {
                             </select>
 
                             <h2>Sort Reviews By</h2>
-                            <select>
+                            <select onChange={(e) => setSortBy(e.target.value)}>
                                 <option value="rating">Rating</option>
                                 <option value="date">Date</option>
                             </select>
+                            <div style={{ background: '#bee9be',height:'60rem',overflowY:'auto',scrollbarWidth:'none' }} className="listingCont">
+                                {reviewData?.data?.textReiews.map((item, index) => {
+                                    return (
+                                        <div style={{ width: '75%', margin: '20px auto', background: 'beige', borderRadius: '6rem' }} className={styles.reviewCard}>
+                                            <div className={styles.reviewHeader}>
+                                                <img src={item?.photoUrl} alt="User Avatar" className={styles.userAvatar} />
+                                                <div className={styles.userInfo}>
+                                                    <span className={styles.username}>{item?.user?.name}</span>
+                                                    <span className={styles.reviewDate}>July 29, 2024</span>
+                                                </div>
+                                                <div className={styles.rating}>
+                                                    <span className={styles.stars}>★</span>
+                                                    <span className={styles.ratingNumber}>{item.starRating}</span>
+                                                </div>
+                                            </div>
+                                            <div className={styles.reviewBody}>
+                                                <p>{item.reviewText}</p>
+                                            </div>
+                                            <div className={styles.reviewFooter}>
+                                                <button className={styles.btn + ' ' + styles.helpful}>Helpful</button>
+                                                <button className={styles.btn + ' ' + styles.reply}>Reply</button>
+                                                <button className={styles.btn + ' ' + styles.report}>Report</button>
+                                            </div>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+
                         </section>
                     </div>
                 </div>
-                <div style={{background:'#bee9be'}} className="listingCont">
-                    {reviewData?.data?.textReiews.map((item, index) => {
-                        return (
-                            <div style={{ width: '75%', margin: '20px auto', background: 'beige',borderRadius:'6rem' }} className={styles.reviewCard}>
-                                <div className={styles.reviewHeader}>
-                                    <img src={item?.photoUrl} alt="User Avatar" className={styles.userAvatar} />
-                                    <div className={styles.userInfo}>
-                                        <span className={styles.username}>{item?.user?.name}</span>
-                                        <span className={styles.reviewDate}>July 29, 2024</span>
-                                    </div>
-                                    <div className={styles.rating}>
-                                        <span className={styles.stars}>★</span>
-                                        <span className={styles.ratingNumber}>{item.starRating}</span>
-                                    </div>
-                                </div>
-                                <div className={styles.reviewBody}>
-                                    <p>{item.reviewText}</p>
-                                </div>
-                                <div className={styles.reviewFooter}>
-                                    <button className={styles.btn + ' ' + styles.helpful}>Helpful</button>
-                                    <button className={styles.btn + ' ' + styles.reply}>Reply</button>
-                                    <button className={styles.btn + ' ' + styles.report}>Report</button>
-                                </div>
-                            </div>
-                        )
-                    })}
-                </div>
+
 
             </div>
             <div>
