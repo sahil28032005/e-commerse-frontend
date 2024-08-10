@@ -21,6 +21,20 @@ const ProductDetails = () => {
     const [position, setPosition] = useState({
         x: 0, y: 0
     });
+    //state for zooming customer images
+    const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+    //states for grid container whcih shows all customer images as group
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [modalImages, setModalImages] = useState([]);
+
+    //function handles viewMore oberlay defined using css
+    const handleViewMoreClick = () => {
+        setModalImages(reviewDetails.textReiews.map(item => item.photoUrl));
+        setIsModalOpen(true);
+    };
+
+    //for closing moal
+
     //gettig product details using single product api
     const getProduct = async () => {
         try {
@@ -75,6 +89,15 @@ const ProductDetails = () => {
         catch (error) {
             console.log(error.message);
         }
+    }
+    //methid ti handke zoomed u=images selection
+    const handleImageClick = (index) => {
+        setSelectedImageIndex(index);
+    }
+    //for closing
+    const handleImageClose = (index) => {
+        setSelectedImageIndex(null);
+        setIsModalOpen(false);
     }
 
     //methid to chunk array in set of three modules
@@ -336,9 +359,9 @@ const ProductDetails = () => {
                     <div style={{ position: 'relative', overflowX: 'auto' }} className={`${styles.customerImages} ${styles.userSidePhotos}`}>
                         {reviewDetails.textReiews?.slice(0, 7).map((item, index) => (
                             <div key={index} style={{ display: 'inline-block', position: 'relative' }}>
-                                {item?.photoUrl && <img src={item.photoUrl} className={styles.commonAnalytics} alt="" />}
+                                {item?.photoUrl && <img onClick={() => handleImageClick(index)} src={item.photoUrl} className={`${styles.commonAnalytics} ${selectedImageIndex === index ? styles.enlargedImage : ''}`} alt="" />}
                                 {index === 6 && reviewDetails.textReiews.length > 7 && (
-                                    <div className={styles.overlayImgCust}>
+                                    <div  onClick={handleViewMoreClick} className={styles.overlayImgCust}>
                                         <span>View More</span>
                                         <span className={styles.remainingCount}>+{reviewDetails.textReiews.length - 7}</span>
                                     </div>
@@ -346,6 +369,28 @@ const ProductDetails = () => {
                             </div>
                         ))}
                     </div>
+
+                    {/* //view more modal which shows all customer images */}
+                    {isModalOpen && (
+                        <div className={styles.modal} onClick={handleImageClose}>
+                            <div className={styles.gridContainer}>
+                                {modalImages.map((image, index) => (
+                                    <img key={index} src={image}  className={styles.gridImage} alt="" />
+                                ))}
+                            </div>
+                        </div>
+                    )}
+                    {console.log("selected images", selectedImageIndex)}
+                    {/* //zoomed container acting as modal */}
+                    {selectedImageIndex !== null && (
+                        <div className={styles.modal} onClick={handleImageClose}>
+                            <img
+                                src={reviewDetails.textReiews[selectedImageIndex].photoUrl}
+                                className={styles.modalImage}
+                                alt=""
+                            />
+                        </div>
+                    )}
 
 
                     <div className={styles.actualReviewListing}>

@@ -35,6 +35,9 @@ export const Home = () => {
     const pageNo = useRef(0);
     const [items, setItems] = useCartProvider();
 
+    //specific categories states storrage container manager
+    const [categoryWiseProducts, setCategoryWiseProducts] = useState({});
+
     // setTimeout(async function () {
     //     try {
     //         const url = await axios.get("https://e-commerse-backend-yeft.onrender.com/api/v1/products/get-photo/666c7828224c4a152fb12686");
@@ -94,6 +97,19 @@ export const Home = () => {
     //         console.log(exception.message);
     //     }
     // }
+    //functiom to fetch as per category
+    const fetchCategoryWiseProducts = async () => {
+        try {
+            const response = await axios.get('https://e-commerse-backend-yeft.onrender.com/api/v1/category/get-products-by-category');
+            if (response.data.success) {
+                setCategoryWiseProducts(response.data.data);
+            } else {
+                console.log('Error fetching category-wise products');
+            }
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
     const getCartItems = async () => {
         try {
             const id = user?.user?._id;
@@ -112,14 +128,14 @@ export const Home = () => {
         }
     }
 
-    const sendParticular = blob => new Promise((resolve, reject) => {
-        const reader = new FileReader;
-        reader.onerror = reject;
-        reader.onload = () => {
-            resolve(reader.result);
-        };
-        reader.readAsDataURL(blob);
-    });
+    // const sendParticular = blob => new Promise((resolve, reject) => {
+    //     const reader = new FileReader;
+    //     reader.onerror = reject;
+    //     reader.onload = () => {
+    //         resolve(reader.result);
+    //     };
+    //     reader.readAsDataURL(blob);
+    // });
 
     const handleAddtoCart = async (pId) => {
         try {
@@ -262,6 +278,7 @@ export const Home = () => {
     }, [catFilters, radioFilters]);
 
     useEffect(() => {
+        fetchCategoryWiseProducts();
         // fetchImgData();
         // setTimeout(() => {
         //     fetchMore();
@@ -370,7 +387,7 @@ export const Home = () => {
                                             handleChkBoxClicks(e.target.checked, item._id);
                                         }}
                                     />
-                                    <label>{item.name}</label>
+                                    <label>{item.name.substring(0,15)}</label>
                                 </div>
                             ))
                         }
@@ -406,6 +423,28 @@ export const Home = () => {
                         </div>
                         <div style={{ margin: '20px' }}>
                             <Slideshow />
+                        </div>
+                        <div className="homeContainer">
+                            {Object.keys(categoryWiseProducts).map((category, index) => (
+                                <div key={index} className="categorySection"> {/* Removed styles. abbreviation */}
+                                    <h2>{category}</h2>
+                                    <div className="productRow"> {/* Removed styles. abbreviation */}
+                                        {categoryWiseProducts[category].map((product, idx) => (
+                                            <div key={idx} className="productCard"> {/* Removed styles. abbreviation */}
+                                                <img style={{height:'20rem'}} src={product?.photos?.[0]} alt={product.name} />
+                                                <h3>{product.name.substring(0, 20)}</h3>
+                                                <p>{product.price}</p>
+                                                <a onClick={() => {
+                                                    navigate(`/product-Details/${product._id}`)
+                                                }} className="btn btn-success mx-3">Buy Now</a>
+                                                <a onClick={() => {
+                                                    handleAddtoCart(product._id);
+                                                }} className="btn btn-danger">Add to Cart</a>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                         <div className="categoriesImg">
                             <div onClick={() => handleChkBoxClicks(true, "666f289f2295ed1e4d8a90b8")} style={{ flex: '1', display: 'flex', alignItems: 'center', flexDirection: 'column', cursor: 'pointer' }} className="commonCatImg"><img width={"72rem"} src={cat1}></img><p>Toys</p></div>
@@ -447,44 +486,38 @@ export const Home = () => {
                                                         row.map((item) => {
                                                             return (
                                                                 <div className="hCard card" style={{ width: '18rem', height: '25rem', margin: '20px', padding: '20px', background: '#c8bbbb' }}>
-                                                                    {/* <img src={`https://e-commerse-backend-yeft.onrender.com/api/v1/products/get-particular-photo/0/${item._id}`} style={{ height: '150px' }} className=" hCard-img hCard-img-top card-img-top" alt="..." /> */}
-                                                                    <img src={item?.photos?.[0]} style={{ height: '150px' }} className=" hCard-img hCard-img-top card-img-top" alt="..." />
-                                                                    {/* <img style={{ height: '150px' }} className="hCard hCard-body hCard-title  hCard-img hCard-img-top card-img-top" alt="..." /> */}
+                                                                    <img src={item?.photos?.[0]} style={{ height: '150px' }} className="hCard-img hCard-img-top card-img-top" alt="..." />
                                                                     <div className="hCard-body card-body">
-                                                                        <h5 className=" hCard-title  h card-title">{item.name.substring(0, 15)}</h5>
-                                                                        <p className="hCard-text   card-text">{item.description.substring(0, 20)}</p>
-
-                                                                        <h5 className=" hCard-title  card-title">{item.price.toLocaleString('en-IN')} Rs</h5>
-                                                                        <div className='btnHCont'>
+                                                                        <h5 className="hCard-title card-title">{item.name.substring(0, 15)}</h5>
+                                                                        <p className="hCard-text card-text">{item.description.substring(0, 20)}</p>
+                                                                        <h5 className="hCard-title card-title">{item.price.toLocaleString('en-IN')} Rs</h5>
+                                                                        <div className='btnHCont' style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
                                                                             <button
-
                                                                                 onClick={() => { navigate(`/product-details/${item._id}`) }}
                                                                                 type="button"
-                                                                                className=" btn btn-success"
+                                                                                className="btn btn-success"
+                                                                                style={{ flex: '1', marginRight: '5px' }}
                                                                             >
                                                                                 Buy Now
                                                                             </button>
                                                                             <button
-
                                                                                 onClick={(e) => {
                                                                                     handleAddtoCart(item._id)
                                                                                 }}
                                                                                 type="button"
                                                                                 className="btn btn-warning"
+                                                                                style={{ flex: '1', marginLeft: '5px' }}
                                                                             >
                                                                                 Add To Cart
                                                                             </button>
                                                                         </div>
-
-
                                                                     </div>
                                                                 </div>
                                                             )
                                                         })
                                                     }
-
-
                                                 </div>
+
                                             </>
 
 

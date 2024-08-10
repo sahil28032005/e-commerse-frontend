@@ -291,20 +291,23 @@
     height: 6rem;
     width: 6rem;
   }
-  .userSidePhotos{
+
+  .userSidePhotos {
     justify-content: center;
   }
-  .featureAnalytics{
+
+  .featureAnalytics {
     flex-direction: column;
   }
-  .ratingListCont{
+
+  .ratingListCont {
     flex-direction: column;
   }
 }
 
 /* text review css */
 .reviewCard {
-  background:#aeaeae;
+  background: #aeaeae;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 20px;
@@ -400,3 +403,71 @@
 }
 
 /* //over effecs */
+/* styles/productDetails.module.css */
+
+.customerImages img {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.enlargedImage {
+  transform: scale(1.5);
+  z-index: 10;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modalImage {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.customerImages img:hover {
+  transform: scale(1.5);
+}
+
+/* //grid modal */
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
+}
+
+.gridImage {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.gridImage:hover {
+  transform: scale(1.1);
+}
+
+.gridImage {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.gridImage:hover {
+  transform: scale(1.5);
+}
+
+/* styles/productDetails.module.css */

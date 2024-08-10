@@ -1,57 +1,139 @@
 /* media queries */
 @media only screen and (max-width: 1062px) {
-    .hCard{
-        width: 10rem!important;
+    .hCard {
+        width: 10rem !important;
         /* background-color: red!important; */
-        height: 20rem!important;
+        height: 20rem !important;
     }
-   
-    body{
-        font-size: 0.6rem!important;
+
+    body {
+        font-size: 0.6rem !important;
     }
-    .btnHCont button{
-        font-size: 0.4rem!important;
+
+    .btnHCont button {
+        font-size: 0.4rem !important;
     }
-    .hCard-title{
+
+    .hCard-title {
         font-size: 0.7rem;
     }
-    .btnHCont{
+
+    .btnHCont {
         display: flex;
         align-items: center;
         justify-content: center;
     }
-    .hCard-img, .hCard-img-top{
-        height: 103px!important;
-    }
-  }
 
-  @media only screen and (max-width: 811px) {
-    .sidebarHome{
-        display: none!important;
+    .hCard-img,
+    .hCard-img-top {
+        height: 103px !important;
     }
-    .btnHCont button{
+    .productCard{
+        width: 13rem!important;
+    }
+    .productCard img{
+        height: 14rem!important;
+    }
+}
+
+@media only screen and (max-width: 811px) {
+    .sidebarHome {
+        display: none !important;
+    }
+
+    .btnHCont button {
         font-size: 0.3rem;
         margin: 5px;
         padding: 0;
         width: 2rem;
         height: 1.2rem;
     }
-  }
-   @media only screen and (max-width: 500px) {
-     .hCard{
-        padding: 0!important;
-        margin: 10px!important;
-        height: 16rem!important;
+    .productCard{
+        width: 10rem!important;
+        margin: 0!important;
+    }
+    .productCard img{
+        height: 7rem!important;
+    }
+    .btn-success, .btn-danger{
+        font-size: 0.4rem!important;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .hCard {
+        padding: 0 !important;
+        margin: 10px !important;
+        height: 16rem !important;
         flex: 1;
-     }
-     .hCard-body{
+    }
+
+    .hCard-body {
         text-align: center;
-     } 
-  }
-  .categoriesImg{
+    }
+    .productCard{
+        width: 6rem!important;
+        margin: 0!important;
+    }
+    .productCard img{
+        height: 5rem!important;
+    }
+    .productCard h3{
+        font-size: 0.5rem!important;
+    }
+}
+
+.categoriesImg {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
+}
+
+/* testing */
+/* styles/Home.module.css */
+
+.homeContainer {
+    padding: 20px;
+}
+
+.categorySection {
+    margin-bottom: 40px;
+}
+
+.productRow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.productCard {
+    width: 20rem;
+    margin: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    background: #343a40;
+    color: #ffffff;
+    /* Ensure text is readable */
+
+
+
+}
+
+.productCard img {
+    width: 100%;
+    height: auto;
+}
+
+.btn-success {
+    background-color: green;
+    border-color: green;
+}
+
+.btn-danger {
+    background-color: red;
+    border-color: red;
+}
