@@ -110,12 +110,12 @@
 }
 
 .productCard {
-    width: 20rem;
+    width: 18rem;
     margin: 20px;
     border: 1px solid #ddd;
-    padding: 10px;
+    /* padding: 10px; */
     text-align: center;
-    background: #343a40;
+    background:#7ab3eb;
     color: #ffffff;
     /* Ensure text is readable */
 
@@ -136,4 +136,6 @@
 .btn-danger {
     background-color: red;
     border-color: red;
+    margin: 10px;
 }
+

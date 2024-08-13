@@ -377,7 +377,11 @@ export const Home = () => {
                         {/* //slideshow coming here/ */}
                         {/* <Slideshow /> */}
                         {
-                            categories.map((item) => (
+                            loading ? (
+                                <>
+                                    <SkeletonLoading type="sidebar" />
+                                </>
+                            ) : (categories.map((item) => (
                                 <div key={item.id} style={{ display: 'flex', alignItems: 'center', marginBottom: '30px' }}>
                                     <input
                                         type="checkbox"
@@ -387,9 +391,10 @@ export const Home = () => {
                                             handleChkBoxClicks(e.target.checked, item._id);
                                         }}
                                     />
-                                    <label>{item.name.substring(0,15)}</label>
+                                    <label>{item.name.substring(0, 15)}</label>
                                 </div>
-                            ))
+                            )))
+
                         }
                     </div>
                     <div className='containerhead'>
@@ -397,7 +402,13 @@ export const Home = () => {
                     </div>
                     <div className="fBody">
                         <ul>
-                            {helperArray.map((item) => (
+
+                            {loading ? (
+                                <>
+                                    <SkeletonLoading type="sidebar" />
+                                    <SkeletonLoading type="sidebar" />
+                                </>
+                            ) : (helperArray.map((item) => (
                                 <li key={item.id} style={{ listStyle: 'none', marginBottom: '20px' }}>
                                     <input
                                         type="radio"
@@ -408,7 +419,7 @@ export const Home = () => {
                                     />
                                     <label htmlFor={`price-${item.id}`}>{item.name}</label>
                                 </li>
-                            ))}
+                            )))}
                         </ul>
                     </div>
 
@@ -425,13 +436,25 @@ export const Home = () => {
                             <Slideshow />
                         </div>
                         <div className="homeContainer">
+                            {loading && <>
+                                <div className="row" style={{ justifyContent: 'center' }}>
+                                    <SkeletonLoading />
+                                    <SkeletonLoading />
+                                    <SkeletonLoading />
+                                </div>
+                                <div className="row" style={{ justifyContent: 'center' }}>
+                                    <SkeletonLoading />
+                                    <SkeletonLoading />
+                                    <SkeletonLoading />
+                                </div>
+                            </>}
                             {Object.keys(categoryWiseProducts).map((category, index) => (
                                 <div key={index} className="categorySection"> {/* Removed styles. abbreviation */}
                                     <h2>{category}</h2>
                                     <div className="productRow"> {/* Removed styles. abbreviation */}
                                         {categoryWiseProducts[category].map((product, idx) => (
                                             <div key={idx} className="productCard"> {/* Removed styles. abbreviation */}
-                                                <img style={{height:'20rem'}} src={product?.photos?.[0]} alt={product.name} />
+                                                <img style={{ height: '20rem' }} src={product?.photos?.[0]} alt={product.name} />
                                                 <h3>{product.name.substring(0, 20)}</h3>
                                                 <p>{product.price}</p>
                                                 <a onClick={() => {
