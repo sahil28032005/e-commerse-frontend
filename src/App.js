@@ -1,4 +1,5 @@
 import { Home } from "./components/Home";
+import { useEffect } from 'react';
 import { LoginModule } from "./components/LoginModule";
 import { NavBar } from "./components/NavBar";
 import { UserDashBoard } from "./components/userDashBoard";
@@ -26,6 +27,8 @@ import PaymentMethods from "./components/PaymentMethods";
 import GoogleSignInSuccess from "./components/GoogleSignInSuccess";
 import RateProduct from "./components/RateProduct";
 import AllReviewsListing from "./components/AllReviewsListing";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 //google oauth imports
 
@@ -205,6 +208,13 @@ const router = createBrowserRouter([
   }
 ]);
 function App() {
+  useEffect(() => {
+    AOS.init({
+        duration: 1200, // Animation duration in milliseconds
+        once: false, // Whether animation should happen only once - while scrolling down
+    });
+  }, []);
+
   return (
     <>
       <RouterProvider router={router} />

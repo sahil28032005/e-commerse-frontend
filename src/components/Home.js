@@ -455,7 +455,7 @@ export const Home = () => {
                                         {categoryWiseProducts[category].map((product, idx) => (
                                             <div key={idx} className="productCard"> {/* Removed styles. abbreviation */}
                                                 <img style={{ height: '20rem' }} src={product?.photos?.[0]} alt={product.name} />
-                                                <h3>{product.name.substring(0, 20)}</h3>
+-                                                <h3>{product.name.substring(0, 20)}</h3>
                                                 <p>{product.price}</p>
                                                 <a onClick={() => {
                                                     navigate(`/product-Details/${product._id}`)

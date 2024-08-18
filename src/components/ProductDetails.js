@@ -3,6 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styles from './styles/productDetails.module.css';
 import Footer from './Footer';
+import 'aos/dist/aos.css';
+import AOS from 'aos';
 
 
 
@@ -159,61 +161,56 @@ const ProductDetails = () => {
         getProduct();
         getSimilarProducts();
         getReviewDetails();
+        AOS.init({ duration: 1200, once: false });
     }, [id]);
+    useEffect(() => {
+        AOS.refresh();
+    }, [singleProduct]);
     return (
         <>
             {console.log("rsset", reviewDetails)}
+           
             <div className={styles.upper} style={{ marginTop: '80px' }}>
                 <div className='information'>
-                    {/* first row */}
                     <h3>{singleProduct?.category?.name}</h3>
                     <div className={styles.upperMainP}>
                         <div className={styles.buyNowCont} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                             <div style={{ background: '#e8fff5', height: '90vh', width: '50%', padding: '20px', display: 'flex' }} className={styles.col6}>
                                 <div className={styles.left} style={{ height: '100%', width: '35%', display: 'flex', flexDirection: 'column' }}>
-                                    <div className={styles.commonDiv} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#e2dfdf', flex: '1', margin: '5px', borderRadius: '10px' }}><img onMouseOver={() => {
-                                        setSelected(0);
-                                    }} style={{ width: '140px', height: '100px' }} src={singleProduct?.photos?.[0]}></img></div>
-                                    <div className={styles.commonDiv} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#e2dfdf', flex: '1', margin: '5px', borderRadius: '10px' }}><img onMouseOver={() => {
-                                        setSelected(1);
-                                    }} style={{ width: '140px', height: '100px', margin: 'auto' }} src={singleProduct?.photos?.[1]}></img></div>
-                                    <div className={styles.commonDiv} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#e2dfdf', flex: '1', margin: '5px', borderRadius: '10px' }}><img onMouseOver={() => {
-                                        setSelected(2);
-                                    }} style={{ width: '140px', height: '100px' }} src={singleProduct?.photos?.[2]}></img></div>
-                                    <div className={styles.commonDiv} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#e2dfdf', flex: '1', margin: '5px', borderRadius: '10px' }}><img onMouseOver={() => {
-                                        setSelected(3);
-                                    }} style={{ width: '140px', height: '100px' }} src={singleProduct?.photos?.[3]}></img></div>
+                                    <div data-aos="fade-right" className={styles.commonDiv} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#e2dfdf', flex: '1', margin: '5px', borderRadius: '10px' }}>
+                                        <img onMouseOver={() => { setSelected(0); }} style={{ width: '140px', height: '100px' }} src={singleProduct?.photos?.[0]}></img>
+                                    </div>
+                                    <div data-aos="fade-right" className={styles.commonDiv} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#e2dfdf', flex: '1', margin: '5px', borderRadius: '10px' }}>
+                                        <img onMouseOver={() => { setSelected(1); }} style={{ width: '140px', height: '100px', margin: 'auto' }} src={singleProduct?.photos?.[1]}></img>
+                                    </div>
+                                    <div data-aos="fade-right" className={styles.commonDiv} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#e2dfdf', flex: '1', margin: '5px', borderRadius: '10px' }}>
+                                        <img onMouseOver={() => { setSelected(2); }} style={{ width: '140px', height: '100px' }} src={singleProduct?.photos?.[2]}></img>
+                                    </div>
+                                    <div data-aos="fade-right" className={styles.commonDiv} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#e2dfdf', flex: '1', margin: '5px', borderRadius: '10px' }}>
+                                        <img onMouseOver={() => { setSelected(3); }} style={{ width: '140px', height: '100px' }} src={singleProduct?.photos?.[3]}></img>
+                                    </div>
                                     <div className={styles.commonDiv} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#e2dfdf', flex: '1', margin: '5px', borderRadius: '10px' }}>
-                                        <iframe
-                                            width="200px"
-                                            height="100%"
-                                            src={singleProduct?.photos?.[4]}
-                                            allowFullScreen
-                                            title="Embedded Content"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-
-                                        ></iframe>
+                                        <iframe width="200px" height="100%" src={singleProduct?.photos?.[4]} allowFullScreen title="Embedded Content" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
                                     </div>
                                 </div>
-                                {/* <div style={{ position: 'absolute' }}>x: {position.x} y:{position.y}</div> */}
-
-                                <div className={styles.right} style={{ height: '90%', background: '#e2dfdf', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '20px' }}><div style={{}} className='right'><img onMouseLeave={handleMouseLeave} onMouseMove={mouseMove} style={{ borderRadius: '10px', width: '400px', height: '100%', margin: '20px' }} src={singleProduct?.photos?.[selected]}></img></div></div>
-                            </div>
-                            <div style={{ backgroundColor: '#f7d7d7', width: '50%', padding: '20px', position: 'relative' }} className={styles.col5}>
-                                <div style={isZoomed} className={styles.zoomed}>
-
+                                <div data-aos="fade-left" className={styles.right} style={{ height: '90%', background: '#e2dfdf', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '20px' }}>
+                                    <div className='right'>
+                                        <img onMouseLeave={handleMouseLeave} onMouseMove={mouseMove} style={{ borderRadius: '10px', width: '400px', height: '100%', margin: '20px' }} src={singleProduct?.photos?.[selected]}></img>
+                                    </div>
                                 </div>
+                            </div>
+                            <div data-aos="fade-up" style={{ backgroundColor: '#f7d7d7', width: '50%', padding: '20px', position: 'relative' }} className={styles.col5}>
+                                <div style={isZoomed} className={styles.zoomed}></div>
                                 <div className={styles.productInf} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
                                     <div className={styles.headCont}>
                                         <h3>{singleProduct.name}</h3>
                                     </div>
                                     <div className={styles.reviews}>
                                         <span>
-                                            ★★★★★ (15 reviews) | In Stock  {singleProduct?.category?.name}
+                                            ★★★★★ (15 reviews) | In Stock {singleProduct?.category?.name}
                                         </span>
-                                        <p className="card-text"><strong>Shipping: </strong>{singleProduct.shipping ? "avaliable" : "not avaliable"}</p>
+                                        <p className="card-text"><strong>Shipping: </strong>{singleProduct.shipping ? "available" : "not available"}</p>
                                     </div>
-
                                     <div className='price'>
                                         <h3>{singleProduct.price} Rs</h3>
                                     </div>
@@ -223,7 +220,6 @@ const ProductDetails = () => {
                                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '90%' }}>
                                         <hr style={{ width: '100%', height: '3px', backgroundColor: '#000', border: 'none' }} />
                                     </div>
-
                                     <div className={styles.colorsPalete}>
                                         <span style={{ display: 'inline-block', border: '2px solid black', width: '20px', height: '20px', borderRadius: '50%', margin: '10px' }}></span>
                                         <span style={{ display: 'inline-block', border: '2px solid black', width: '20px', height: '20px', borderRadius: '50%', margin: '10px' }}></span>
@@ -249,7 +245,6 @@ const ProductDetails = () => {
                                             <button onClick={(e) => {
                                                 navigate(`/billing-details/${singleProduct._id}/${count}`);
                                             }} className={styles.btnbuynow}>Buy Now</button>
-
                                         </div>
                                     </div>
                                     <div className={styles.deliveryOpt}>
@@ -263,49 +258,45 @@ const ProductDetails = () => {
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>
 
 
+
+
             {/* //second row displays related items*/}
             <div style={{ width: '100%', background: '#c1c1de', marginTop: '20px' }} className="containerRelated">
-                <div ><h3>Related Items</h3></div>
+                <div><h3>Related Items</h3></div>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }}>
-                    {similarProduct.map((item) => {
+                    {similarProduct.map((item, index) => {
                         return (
-                            <>
-                                <div className="card" style={{ width: '18rem', margin: '20px' }}>
-                                    <img style={{ height: '250px' }} src={item?.photos?.[0]} className="card-img-top" alt="..." />
-                                    <div className="card-body">
-                                        <h5 className="card-title">{item.name.substring(0, 25)}</h5>
-                                        <p className="card-text">{item.description.substring(0, 40)}</p>
-                                        <a onClick={() => {
-                                            navigate(`/product-Details/${item._id}`)
-                                        }} className="btn btn-danger mx-3">Buy Now</a>
-                                        <a href="#" className="btn btn-success">Add to cart</a>
-                                    </div>
+                            <div key={index} className="card" style={{ width: '18rem', margin: '20px' }} data-aos="fade-up" data-aos-duration="1500" data-aos-delay={index * 100} data-aos-offset="200" data-aos-easing="ease-in-out" data-aos-once="false">
+                                <img style={{ height: '250px' }} src={item?.photos?.[0]} className="card-img-top" alt="..." />
+                                <div className="card-body">
+                                    <h5 className="card-title">{item.name.substring(0, 25)}</h5>
+                                    <p className="card-text">{item.description.substring(0, 40)}</p>
+                                    <a onClick={() => {
+                                        navigate(`/product-Details/${item._id}`)
+                                    }} className="btn btn-danger mx-3">Buy Now</a>
+                                    <a href="#" className="btn btn-success">Add to cart</a>
                                 </div>
-                            </>
+                            </div>
                         )
                     })}
                 </div>
-
             </div>
             {/* reviews section */}
-            <div className={styles.reviewSection}>
+            <div className={styles.reviewSection} data-aos="fade-up">
                 <h2>Ratings And Reviews</h2>
                 <div className={styles.raingsCount}>
                     <div className={styles.ratingListCont}>
                         <div className={styles.totalAvg}>
                             <div style={{ fontSize: '3rem' }}>{reviewDetails?.averageRating?.toFixed(1) || 0} <span style={{ fontSize: '50px' }}>&#9733;</span></div>
                             <span style={{ fontSize: '1.2rem' }}>12,345 Ratings and {reviewDetails?.totalReviews > 1 ? reviewDetails?.totalReviews : 0} reviews</span>
-                        </div >
+                        </div>
                         <div className={styles.listedRating}>
                             <li style={{ listStyle: 'none' }} className={styles.progressCont}>
                                 <div style={{ margin: '10px' }}>5</div>
@@ -342,7 +333,7 @@ const ProductDetails = () => {
                     <div className={styles.featureAnalytics}>
                         {singleProduct?.subCategory?.reviewsCategory.map((item, index) => {
                             return (
-                                <div className={styles.commonAnalytics} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                <div className={styles.commonAnalytics} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} key={index}>
                                     <div className={styles.progress1}>
                                         <div className={styles.uivalues}>{reviewDetails?.percentGrp?.[index]?.toFixed(2) ?? 0}%</div>
                                         <div className={styles.uilabels}>{item}</div>
@@ -350,18 +341,16 @@ const ProductDetails = () => {
                                 </div>
                             )
                         })}
-
-
                     </div>
                 </div>
 
                 <div className="secondRev">
                     <div style={{ position: 'relative', overflowX: 'auto' }} className={`${styles.customerImages} ${styles.userSidePhotos}`}>
                         {reviewDetails.textReiews?.slice(0, 7).map((item, index) => (
-                            <div key={index} style={{ display: 'inline-block', position: 'relative' }}>
+                            <div key={index} style={{ display: 'inline-block', position: 'relative' }} data-aos="fade-up">
                                 {item?.photoUrl && <img onClick={() => handleImageClick(index)} src={item.photoUrl} className={`${styles.commonAnalytics} ${selectedImageIndex === index ? styles.enlargedImage : ''}`} alt="" />}
                                 {index === 6 && reviewDetails.textReiews.length > 7 && (
-                                    <div  onClick={handleViewMoreClick} className={styles.overlayImgCust}>
+                                    <div onClick={handleViewMoreClick} className={styles.overlayImgCust}>
                                         <span>View More</span>
                                         <span className={styles.remainingCount}>+{reviewDetails.textReiews.length - 7}</span>
                                     </div>
@@ -370,18 +359,16 @@ const ProductDetails = () => {
                         ))}
                     </div>
 
-                    {/* //view more modal which shows all customer images */}
                     {isModalOpen && (
                         <div className={styles.modal} onClick={handleImageClose}>
                             <div className={styles.gridContainer}>
                                 {modalImages.map((image, index) => (
-                                    <img key={index} src={image}  className={styles.gridImage} alt="" />
+                                    <img key={index} src={image} className={styles.gridImage} alt="" />
                                 ))}
                             </div>
                         </div>
                     )}
                     {console.log("selected images", selectedImageIndex)}
-                    {/* //zoomed container acting as modal */}
                     {selectedImageIndex !== null && (
                         <div className={styles.modal} onClick={handleImageClose}>
                             <img
@@ -392,9 +379,8 @@ const ProductDetails = () => {
                         </div>
                     )}
 
-
                     <div className={styles.actualReviewListing}>
-                        <div style={{ position: 'relative', width: '100%', height: '100px' }}> {/* Adjust width and height as needed */}
+                        <div style={{ position: 'relative', width: '100%', height: '100px' }}>
                             <button
                                 style={{
                                     backgroundColor: '#007bff',
@@ -405,8 +391,8 @@ const ProductDetails = () => {
                                     cursor: 'pointer',
                                     borderRadius: '5px',
                                     position: 'absolute',
-                                    right: '10px', // Adjust the right offset as needed
-                                    bottom: '10px' // Adjust the bottom offset as needed
+                                    right: '10px',
+                                    bottom: '10px'
                                 }}
                                 onClick={() => { navigate(`/rate-product/${id}`) }}
                             >
@@ -415,7 +401,7 @@ const ProductDetails = () => {
                         </div>
 
                         {reviewDetails.textReiews?.slice(0, 4).map((item, index) => (
-                            <div style={{ width: '90%', margin: '20px auto', background: 'beige', borderRadius: '6rem' }} className={styles.reviewCard}>
+                            <div style={{ width: '90%', margin: '20px auto', background: 'beige', borderRadius: '6rem' }} className={styles.reviewCard} data-aos="fade-up" key={index}>
                                 <div className={styles.reviewHeader}>
                                     <img src={item?.photoUrl} alt="User Avatar" className={styles.userAvatar} />
                                     <div className={styles.userInfo}>
@@ -436,11 +422,9 @@ const ProductDetails = () => {
                                     <button className={styles.btn + ' ' + styles.report}>Report</button>
                                 </div>
                             </div>
-
-
                         ))}
                     </div>
-                    <div style={{ position: 'relative', width: '100%', height: '100px' }}> {/* Adjust width and height as needed */}
+                    <div style={{ position: 'relative', width: '100%', height: '100px' }}>
                         <button
                             style={{
                                 backgroundColor: '#007bff',
@@ -451,8 +435,8 @@ const ProductDetails = () => {
                                 cursor: 'pointer',
                                 borderRadius: '5px',
                                 position: 'absolute',
-                                right: '10px', // Adjust the right offset as needed
-                                bottom: '10px' // Adjust the bottom offset as needed
+                                right: '10px',
+                                bottom: '10px'
                             }}
                             onClick={() => { navigate(`/get-alll-reviews/${id}`) }}
                         >
@@ -460,8 +444,8 @@ const ProductDetails = () => {
                         </button>
                     </div>
                 </div>
-
             </div>
+
             <div>
                 <Footer />
             </div>
